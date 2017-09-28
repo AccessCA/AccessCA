@@ -199,6 +199,18 @@ p {
     top: 60%;
 }
 
+.about p {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    line-height: 20px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+}
+
+
 .body-events p{
     color: #000000;
     font-family: 'Lato', sans-serif;
@@ -217,7 +229,6 @@ p {
 .body-events p span{
     font-size: 12px;
     text-transform: uppercase;
-    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
     background: #A6A6A6;
     width: auto;
