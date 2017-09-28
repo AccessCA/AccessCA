@@ -122,11 +122,21 @@ h3 {
     color: black;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 input {
     width: 300px;
     padding: 10px 10px;
     border-color: black;
-    border: 1px solid black; 
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid black; 
     font-size: 15px;
     background: transparent;   
     color: black;
