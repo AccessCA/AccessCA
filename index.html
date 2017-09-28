@@ -23,16 +23,20 @@
             <a name="scrolled"></a>
             
             <div class="body-events">
+                <h2>Let's Get Started!</h2>
                 <div ng-app="root" ng-controller="controller">
 
                     <p>First Name:</p>
-                    <input type="text" ng-model="firstName"><br>
+                    <input type="text" ng-model="firstName" placeholder="First Name" required>
                     <br>
                     <p>Last Name:</p>
-                    <input type="text" ng-model="lastName"><br>
+                    <input type="text" ng-model="lastName" placeholder="Last Name" required>
                     <br>
                     <p>Full Name: {{firstName + " " + lastName}}</p>
-                    Show Bonus Question? <input type="checkbox" ng-model="isFirstElementVisible" /> 
+                    <p ng-class="{italic: isItalic()}">Income:</p>
+                    <input type="text" ng-model="income" required><br>{{isBold}}
+                    <br>
+                    <p>Show Bonus Question?</p> <input type="checkbox" ng-model="isFirstElementVisible" /> 
                     <div ng-show="isFirstElementVisible">
                         <p>BONUS!</p>
                         <input type="text">{{show}}<br>
