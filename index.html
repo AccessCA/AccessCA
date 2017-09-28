@@ -32,8 +32,11 @@
                     <input type="text" ng-model="lastName"><br>
                     <br>
                     <p>Full Name: {{firstName + " " + lastName}}</p>
-                    <p ng-show="isFirstElementVisible">BONUS!</p>
-                    <input type="text">{{show}}<br>
+                    Show Bonus Question? <input type="checkbox" ng-model="isFirstElementVisible" /> 
+                    <div ng-show="isFirstElementVisible">
+                        <p>BONUS!</p>
+                        <input type="text">{{show}}<br>
+                    </div>
                     <br>
 
                 </div>
