@@ -210,6 +210,13 @@ p {
     padding-bottom: 0px;
 }
 
+.programSupported {
+    text-align: center;
+}
+
+.programSupported p {
+    text-align: center;
+}
 
 .body-events p{
     color: #000000;
