@@ -193,11 +193,27 @@ p {
 /* Bouncy Scroll Indicator */
 .scroll-indicator { 
     color: white;
-    position: absolute;
+    position: relative;
     left: 48%;
     font-size: 30px;
-    top: 60%;
+    margin-top: 17%;
+    top: 48%;
+    -webkit-animation: bounce 1s infinite; 
+    animation: bounce 1s infinite;
 }
+
+@-webkit-keyframes bounce {
+    0% { top: 48%; }
+    50%   { top: 50%; }
+    100% { top: 48%; }
+}
+
+@keyframes bounce {
+    0% { top: 48%; }
+    50%   { top: 50%; }
+    100% { top: 48%; }
+}
+
 .about p {
     color: #000000;
     font-family: 'Lato', sans-serif;
@@ -211,6 +227,10 @@ p {
 
 .icon {
     color: #933749;
+}
+
+.gray {
+    background-color: #E8E8E8;
 }
 
 .programSupported {
