@@ -47,8 +47,8 @@ body {
         font-size: 5vw !important;
     }
     p {
-
-        font-size: 15px !important;
+        font-size: 3vw !important;
+        /*font-size: 15px !important;*/
         line-height: 20px !important;
     }
     .scroll-indicator {	
@@ -56,7 +56,7 @@ body {
     }   
 
     .body-events {
-        width: 90%;
+        width: 90% !important;
     }
 }
 
@@ -161,6 +161,7 @@ p {
     font-variant: normal;
     font-size: 5em;
     font-size: 2vw;
+    margin-bottom: 15px;
     font-weight: 300;
     color: #ffffff;
     text-align: center;
@@ -214,7 +215,7 @@ p {
 
 .body-events {
     padding-top: 20px;
-    width: 45%; 
+    width: 100%; 
     margin: 0 auto;
 }
 
