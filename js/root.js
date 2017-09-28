@@ -3,6 +3,6 @@ var app = angular.module('root', [])
         $scope.income;
         $scope.numberInHousehold;
         $scope.isStudent;
-        $scope.isEligible = function () { return $scope.income <= 1915 + 670 * ($scope.numberInHousehold - 1); };
+        $scope.isEligible = function () { return $scope.income <= 1915 + 670 * ($scope.numberInHousehold - 1) && !($scope.isStudent == "true"); };
         $scope.isFirstElementVisible = false;
     });
