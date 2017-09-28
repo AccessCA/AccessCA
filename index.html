@@ -1,17 +1,11 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-
-
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="../css/bootstrap.css" rel="stylesheet">
-
-        <meta name=viewport content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../js/smoothscroll.js"></script>
+        <script type="text/javascript" src="js/smoothscroll.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script type="text/javascript" src="js/root.js"></script>
     </head>
 
     <body>
@@ -25,76 +19,31 @@
                 </div>
                 <a href="#scrolled" class="smoothScroll"><div class="scroll-indicator fa fa-chevron-down"></div></a>
             </div>
+
             <a name="scrolled"></a>
             
             <div class="body-events">
+                <div ng-app="root" ng-controller="controller">
 
-                <div class="row">
-                  <div class="col-md-6">
-                    <img src="../img/events/talks/sarahkateellis/sarah_kate_ellis.jpg">
-                    <p style="height:20px;"><span>September 6, 2016</span></p>
-                    <h3>LGBTQ Progress in the Media</h3>
-                    <h4>Sarah Kate Ellis</h4>
-                    <h5>President and CEO of GLAAD</h5>
-                    <p>LGBTQ representation in media is critical for the path towards social acceptance. Although strides toward equality have been substantial in the past few years, there are many more milestones to meet before the LGBTQ community can reach the ultimate goal of acceptance. In this talk, Sarah Kate Ellis will make the case for why LGBTQ media presence is critical and how we can work together to realize full acceptance for the LGBTQ community.</p>
-                  </div>
-                  <div class="col-md-6">
-                    <img src="../img/events/talks/julissaarce/julissa_arce.jpg">
-                    <p style="height:20px;"><span>October 11, 2016</span></p>
-                    <h3>The American DREAMer: From Undocumented to Wall Street</h3>
-                    <h4>Julissa Arce</h4>
-                    <h5>Immigrant Rights Advocate and Former Wall Street Executive</h5>
-                    <p>"The American DREAMer: From Undocumented to Wall Street and Immigration Advocacy" Julissa Arce built a successful career on Wall Street working at Goldman Sachs and Merrill Lynch and had seemingly achieved the American Dream of wealth and status, and yet she was not part of what defined American. Julissa will share how she asked herself, what if she defined American.</p>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <img src="../img/events/talks/sarahkateellis/sarah_kate_ellis.jpg">
-                    <p style="height:20px;"><span>September 6, 2016</span></p>
-                    <h3>LGBTQ Progress in the Media</h3>
-                    <h4>Sarah Kate Ellis</h4>
-                    <h5>President and CEO of GLAAD</h5>
-                    <p>LGBTQ representation in media is critical for the path towards social acceptance. Although strides toward equality have been substantial in the past few years, there are many more milestones to meet before the LGBTQ community can reach the ultimate goal of acceptance. In this talk, Sarah Kate Ellis will make the case for why LGBTQ media presence is critical and how we can work together to realize full acceptance for the LGBTQ community.</p>
-                  </div>
-                  <div class="col-md-6">
-                    <img src="../img/events/talks/julissaarce/julissa_arce.jpg">
-                    <p style="height:20px;"><span>October 11, 2016</span></p>
-                    <h3>The American DREAMer: From Undocumented to Wall Street</h3>
-                    <h4>Julissa Arce</h4>
-                    <h5>Immigrant Rights Advocate and Former Wall Street Executive</h5>
-                    <p>"The American DREAMer: From Undocumented to Wall Street and Immigration Advocacy" Julissa Arce built a successful career on Wall Street working at Goldman Sachs and Merrill Lynch and had seemingly achieved the American Dream of wealth and status, and yet she was not part of what defined American. Julissa will share how she asked herself, what if she defined American.</p>
-                  </div>
-                </div>
-
-            </div>
-
-            <div id="container">
-            <div id="bottomheader">
-                <div id="text">
-                        <p>The Berkeley Forum is a student-run, non-partisan organization that is dedicated to bringing debates, talks, and panels to the UC Berkeley campus. All of our events are free for students to attend, and many are free to the rest of the community as well.<br><br>To get updates about upcoming events, subscribe below and follow us on social media.</p>
-                    </div>
+                    <p>First Name:</p>
+                    <input type="text" ng-model="firstName"><br>
                     <br>
-                <br>
-                    <div id="socialmedia">
-                      <a href="https://www.facebook.com/berkeleyforum" target="new"><span></span></a>
-                      <a href="https://twitter.com/berkeleyforum" target="new"><span></span></a>
-                      <a href="https://www.instagram.com/berkeleyforum/" target="new"><span></span></a>
-                      <a href="https://www.youtube.com/user/TheBerkeleyForum" target="new"><span></span></a>
-                    </div>
-                    
-                    <div id="podcast">
-                        
-                        <a href="#">Check out our podcast!</a>
-                        
-                    </div>
+                    <p>Last Name:</p>
+                    <input type="text" ng-model="lastName"><br>
+                    <br>
+                    <p>Full Name: {{firstName + " " + lastName}}</p>
+                    <p ng-show="isFirstElementVisible">BONUS!</p>
+                    <input type="text">{{show}}<br>
+                    <br>
+
+                </div>
+
             </div>
 
 
             <div id="footer">
-                <p>Designed and developed by the Berkeley Forum team in California</p>
-                <p>&copy;2017 The Berkeley Forum</p>
+                <p>Designed and developed by Courtney Brousseau and Merric de Launey in Computer Science 194.</p>
             </div>
-        </div>    
+        </div>   
     </body>
 </html>
