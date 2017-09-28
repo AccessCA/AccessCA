@@ -54,6 +54,10 @@ body {
     .scroll-indicator {	
         left: 43% !important;
     }   
+
+    .body-events {
+        width: 90%;
+    }
 }
 
 /* Header Titles and Inputs */
@@ -225,7 +229,7 @@ p {
 }
 
 #footer p {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #AAAAAA;
     font-size: 20px;
     line-height: 1;
