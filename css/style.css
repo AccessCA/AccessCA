@@ -209,6 +209,10 @@ p {
     padding-bottom: 0px;
 }
 
+.icon {
+    color: #933749;
+}
+
 .programSupported {
     text-align: center;
     margin-bottom: 20px;
