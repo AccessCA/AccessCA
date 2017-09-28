@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,600,900');
 
 .italic {
     font-style: italic;
@@ -168,22 +168,7 @@ p {
     position: absolute;
     left: 48%;
     font-size: 30px;
-
-    -webkit-animation: bounce 1s infinite; 
-    animation: bounce 1s infinite;
-
-}
-
-@-webkit-keyframes bounce {
-    0% { top: 60%; }
-    50%   { top: 61%; }
-    100% { top: 60%; }
-}
-
-@keyframes bounce {
-    0% { top: 60%; }
-    50%   { top: 61%; }
-    100% { top: 60%; }
+    top: 60%;
 }
 
 .body-events p{
@@ -225,7 +210,7 @@ p {
 
 .body-events {
     padding-top: 20px;
-    width: 80%; 
+    width: 45%; 
     margin: 0 auto;
 }
 

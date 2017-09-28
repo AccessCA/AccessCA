@@ -26,26 +26,25 @@
                 <h2>Let's Get Started!</h2>
                 <div ng-app="root" ng-controller="controller">
 
-                    <p>First Name:
-                    <input type="text" ng-model="firstName" required>
+                    <p>How many people live in your household, including yourself?<p>
+                    <select ng-model="numberInHousehold" required>
+                        <option value="1">Just me!</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5 people</option>
+                        <option value="6">6 people</option>
+                        <option value="7">7 people</option>
+                        <option value="8">8 people</option>
+                        <option value="9">9 people</option>
+                        <option value="10">10 people</option>
+                    </select>
+                    <p>About how much money did your household make last month? <br>
+                    $<input type="text" ng-model="income" required><br>
                     </p>
-                    <p>Last Name:
-                    <input type="text" ng-model="lastName" required>
-                    </p>
-                    <p>Full Name: {{firstName + " " + lastName}}</p>
-                    <p ng-class="{italic: isItalic()}">Income:
-                    <input type="text" ng-model="income" required><br>
-                    </p>
-                    <br>
-                    <p>Show Bonus Question?</p> <input type="checkbox" ng-model="isFirstElementVisible" /> 
-                    <div ng-show="isFirstElementVisible">
-                        <p>BONUS!</p>
-                        <input type="text">{{show}}
-                    </div>
-
-                    <br>
-
+                    <p ng-show="isEligible()">Great! It looks like your household may qualify for CalFresh!</p>
                 </div>
+                <br>
 
             </div>
 

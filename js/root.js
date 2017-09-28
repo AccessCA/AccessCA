@@ -1,8 +1,7 @@
 var app = angular.module('root', [])
     .controller('controller', function($scope) {
-        $scope.firstName;
-        $scope.lastName;
         $scope.income;
-        $scope.isItalic = function () { return $scope.income % 2 === 0; };
+        $scope.numberInHousehold;
+        $scope.isEligible = function () { return $scope.income <= 1915 + 670 * ($scope.numberInHousehold - 1); };
         $scope.isFirstElementVisible = false;
     });
