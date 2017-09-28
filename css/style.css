@@ -198,7 +198,6 @@ p {
     font-size: 30px;
     top: 60%;
 }
-
 .about p {
     color: #000000;
     font-family: 'Lato', sans-serif;
@@ -212,10 +211,12 @@ p {
 
 .programSupported {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .programSupported p {
     text-align: center;
+    margin-top: 10px;
 }
 
 .body-events p{
