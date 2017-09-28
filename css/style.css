@@ -52,6 +52,9 @@ body {
         font-size: 7vw !important;
 
     }
+    h2 {
+        font-size: 7vw !important;
+    }
     h3 {
         font-size: 5vw !important;
     }
@@ -63,6 +66,10 @@ body {
     .scroll-indicator { 
         left: 43% !important;
     }   
+
+    #header {
+        height: 40% !important;
+    }
 }
 
 /* Header Titles and Inputs */
@@ -93,7 +100,7 @@ h2 {
     font-weight: 600;
     color: #000000;
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 h3 {
