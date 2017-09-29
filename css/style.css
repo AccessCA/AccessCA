@@ -159,19 +159,37 @@ input {
     font-family: 'Lato', sans-serif;
 }
 
+.checkbox {
+    border-radius: 10px;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: black;
+    border: 1px solid black; 
+    width: 95%;
+    padding: 10px 10px;
+    background: white;  
+}
+
+.checkboxSelected {
+    background: #56bf56;
+    color: white;
+}
+
 select {
+    border-radius: 10px;
     width: 95%;
     padding: 10px 10px;
     border-color: black;
     border: 1px solid black; 
     font-size: 15px;
-    background: transparent;   
+    background: white;   
     color: black;
     font-family: 'Lato', sans-serif;
 }
 
 input.ng-dirty.ng-valid {
-    border-color: green;
+    border-color: #56bf56;
 }
 
 input.ng-dirty.ng-invalid {

@@ -84,31 +84,74 @@
                     <div class="col-sm-6">
                         <h2>Let's Get Started!</h2>
                         <div ng-app="root" ng-controller="controller">
-                            <p>How many people live in your household, including yourself?</p>
-                            <select ng-model="numberInHousehold" required>
-                                <option value="1">Just me!</option>
-                                <option value="2">2 people</option>
-                                <option value="3">3 people</option>
-                                <option value="4">4 people</option>
-                                <option value="5">5 people</option>
-                                <option value="6">6 people</option>
-                                <option value="7">7 people</option>
-                                <option value="8">8 people</option>
-                                <option value="9">9 people</option>
-                                <option value="10">10 people</option>
-                            </select>
+                            <p>What are you interested in applying for?</p>
+                            <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
+                                <label><input type="checkbox" name="fc" ng-model="wantsCalFresh">CalFresh</input></label>
+                            </div>
+                            <div class="checkbox" ng-class="{checkboxSelected: wantsMediCal}">
+                                <label><input type="checkbox" name="fc" ng-model="wantsMediCal">MediCal</input></label>
+                            </div>
+                            <div class="checkbox" ng-class="{checkboxSelected: wantsCalWORKS}">
+                                <label><input type="checkbox" name="fc" ng-model="wantsCalWORKS">CalWORKS</input></label>
+                            </div>
 
-                            <p>About how much money did your household make last month? <br>
-                            $<input type="text" ng-model="income" required><br>
-                            </p>
+                            <div ng-show="wantsCalFresh">
+                                <p>How many people live in your household, including yourself?</p>
+                                <select ng-model="numberInHousehold" required>
+                                    <option value="1">Just me!</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3">3 people</option>
+                                    <option value="4">4 people</option>
+                                    <option value="5">5 people</option>
+                                    <option value="6">6 people</option>
+                                    <option value="7">7 people</option>
+                                    <option value="8">8 people</option>
+                                    <option value="9">9 people</option>
+                                    <option value="10">10 people</option>
+                                </select>
+                            </div>
 
-                            <p>Are you a student?</p>
-                            <select ng-model="isStudent" required>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
+                            <div ng-show="wantsCalFresh">
+                                <p>About how much money did your household make last month? <br>
+                                $<input type="text" ng-model="income" required><br>
+                                </p>
+                            </div>
+
+                            <div ng-show="wantsCalFresh">
+                                <p>Are you or someone in your househould a student?</p>
+                                <select ng-model="isStudent" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+
+                            <div ng-show="wantsCalFresh">
+                                <p>Are you or someone in your househould receiving SSI/SSP?</p>
+                                <select ng-model="hasSSI" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+
+                            <div ng-show="checkSSINumber()">
+                                <p>How many people in your household receive SSI/SSP?</p>
+                                <select ng-model="numberOnSSI" required>
+                                    <option value="1">1 person</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3" ng-show="numberInHousehold > 2">3 people</option>
+                                    <option value="4" ng-show="numberInHousehold > 3">4 people</option>
+                                    <option value="5" ng-show="numberInHousehold > 4">5 people</option>
+                                    <option value="6" ng-show="numberInHousehold > 5">6 people</option>
+                                    <option value="7" ng-show="numberInHousehold > 6">7 people</option>
+                                    <option value="8" ng-show="numberInHousehold > 7">8 people</option>
+                                    <option value="9" ng-show="numberInHousehold > 8">9 people</option>
+                                    <option value="10" ng-show="numberInHousehold > 9">10 people</option>
+                                </select>
+                            </div>
                             
                             <p ng-show="isEligible()">Great! It looks like your household may qualify for CalFresh!</p>
+
+                            <p ng-show="!isEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh.</p>
                         </div>
                         <br>
                     </div>
