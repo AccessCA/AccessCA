@@ -146,6 +146,7 @@ button:focus {
 }
 
 input {
+    background: white; 
     width: 95%;
     padding: 10px 10px;
     border-color: black;
@@ -153,8 +154,7 @@ input {
     border-left: 0px;
     border-right: 0px;
     border-bottom: 1px solid black; 
-    font-size: 15px;
-    background: transparent;   
+    font-size: 15px;  
     color: black;
     font-family: 'Lato', sans-serif;
 }
@@ -239,6 +239,10 @@ p {
     0% { top: 48%; }
     50%   { top: 50%; }
     100% { top: 48%; }
+}
+
+.question {
+    margin-bottom: 10px;
 }
 
 .about p {
