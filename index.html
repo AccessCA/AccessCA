@@ -79,6 +79,7 @@
             </div>
             
             <div class="row gray">
+
                 <div class="body-events">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
@@ -97,7 +98,9 @@
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="wantsCalFresh">
+
+
+                            <div class="question" ng-show="wantsCalFresh || wantsCalWorks">
                                 <p>How many people live in your household, including yourself?</p>
                                 <select ng-model="numberInHousehold" required>
                                     <option value="1">Just me!</option>
@@ -150,10 +153,10 @@
                                     <option value="10" ng-show="numberInHousehold > 9">10 people</option>
                                 </select>
                             </div>
-                            
-                            <p ng-show="isEligible()">Great! It looks like your household may qualify for CalFresh!</p>
 
-                            <p ng-show="!isEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh.</p>
+                            <p ng-show="showEligible()">Great! It looks like your household may qualify for CalFresh!</p>
+
+                            <p ng-show="showNotEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh.</p>
                         </div>
                         <br>
                     </div>

@@ -9,6 +9,8 @@ var app = angular.module('root', [])
         $scope.hasSSI;
         $scope.numberOnSSI;
         $scope.isEligible = function () { return $scope.income <= 1915 + 670 * ($scope.numberInHousehold - 1) && !($scope.isStudent == "yes" && $scope.numberInHousehold == 1) && !($scope.numberInHousehold == $scope.numberOnSSI) && !($scope.numberInHousehold == 1 && $scope.hasSSI == "yes"); };
+        $scope.showEligible = function () { return $scope.wantsCalFresh && $scope.isEligible(); };
+        $scope.showNotEligible = function () { return $scope.wantsCalFresh && !$scope.isEligible(); };
         $scope.checkSSINumber = function () { return $scope.numberInHousehold > 1 && $scope.hasSSI == "yes"; };
 		$scope.isFirstElementVisible = false;
     });
