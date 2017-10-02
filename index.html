@@ -100,7 +100,7 @@
 
 
 
-                            <div class="question" ng-show="wantsCalFresh || wantsCalWorks">
+                            <div class="question" ng-show="wantsCalFresh || wantsCalWORKS">
                                 <p>How many people live in your household, including yourself?</p>
                                 <select ng-model="numberInHousehold" required>
                                     <option value="1">Just me!</option>
@@ -116,10 +116,28 @@
                                 </select>
                             </div>
 
-                            <div class="question" ng-show="wantsCalFresh">
+                            <div class="question" ng-show="wantsCalFresh || wantsCalWORKS">
                                 <p>About how much money did your household make last month? <br><br>
                                 $ <input type="text" ng-model="income" required><br>
                                 </p>
+                            </div>
+
+<!--                             <div class="question" ng-show="wantsCalFresh || wantsCalWORKS">
+                                <p>Are you or someone in your househould over 60 and/or receiving disability payments?</p>
+                                <select ng-model="has60orDisa" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div> -->
+
+                            <div class="question" ng-show="wantsCalFresh || wantsCalWORKS">
+                                <p>Select all that apply to you or the people who live with you:</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasDisabled}">
+                                    <label><input type="checkbox" name="fc" ng-model="hasDisabled">Someone is disabled</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: has60}">
+                                    <label><input type="checkbox" name="fc" ng-model="has60">Someone is age 60 or older</input></label>
+
                             </div>
 
                             <div class="question" ng-show="wantsCalFresh">
@@ -154,9 +172,9 @@
                                 </select>
                             </div>
 
-                            <p ng-show="showEligible()">Great! It looks like your household may qualify for CalFresh!</p>
+                            <p ng-show="wantsCalFresh && isCalFreshEligible()">Great! It looks like your household may qualify for CalFresh!</p>
 
-                            <p ng-show="showNotEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh.</p>
+                            <p ng-show="wantsCalFresh && !isCalFreshEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh.</p>
                         </div>
                         <br>
                     </div>
