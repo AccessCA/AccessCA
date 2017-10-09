@@ -41,13 +41,13 @@ var app = angular.module('root', [])
             && $scope.isCitizen; 
         };
 
-        $scope.maxWorksIncome = function (x) { return 416 + 319 * x - 8 * x ^ 2}
+        $scope.maxWorksIncome = function (x) { return 414 + 318 * x - 8 * x ^ 2}
 
 
         $scope.isCalWORKSEligible = function () {
             return $scope.meetsChildReqs()
-            // && $scope.isCitizen
-            // && $scope.income <= (420 + 320 * $scope.numberInHousehold - 8 * ($scope.numberInHousehold) ^ 2)
+            && $scope.isCitizen
+            && $scope.income <= (420 + 320 * $scope.numberInHousehold - 8 * ($scope.numberInHousehold) ^ 2)
             && ($scope.assets <= 2250 || (($scope.has60 || $scope.hasDisabled) && ($scope.assets <= 3250 )));
         };
 
