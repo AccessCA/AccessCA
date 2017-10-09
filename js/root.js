@@ -21,16 +21,9 @@ var app = angular.module('root', [])
 
         $scope.hasChildUnder19 = false;
 
-
         $scope.unavailableParent = false;
         $scope.notUnavailableParent = false;
         $scope.lowIncomeParent = false;
-
-
-
-
-
-
 
         $scope.isCalFreshEligible = function () { 
 
@@ -50,10 +43,6 @@ var app = angular.module('root', [])
             && $scope.income <= (420 + 320 * $scope.numberInHousehold - 8 * ($scope.numberInHousehold) ^ 2)
             && ($scope.assets <= 2250 || (($scope.has60 || $scope.hasDisabled) && ($scope.assets <= 3250 )));
         };
-
-        $scope.showEligible = function () { return $scope.wantsCalFresh && $scope.isCalFreshEligible(); };
-        $scope.showNotEligible = function () { return $scope.wantsCalFresh && !$scope.isCalFreshEligible(); };
-
 
         $scope.checkSSINumber = function () { return $scope.numberInHousehold > 1 && $scope.hasSSI == "yes"; };
         $scope.meetsChildReqs = function () { return $scope.lowIncomeParent || $scope.unavailableParent || $scope.isPregnant}

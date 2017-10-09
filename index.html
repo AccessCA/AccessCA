@@ -29,54 +29,13 @@
                     <div id="text">
                         <p>We're here to help you access the services you're entitled to.</p>
                     </div>
+                    <br>
+                    <input class="button" type="button" value="Learn More" onclick="window.location.href='about.html'"/>
                 </div>
                 <!--<a href="#scrolled" class="smoothScroll"><div class="scroll-indicator fa fa-chevron-down"></div></a>-->
             </div>
 
             <a name="scrolled"></a>
-
-            
-            <div class="row"> 
-                <div class="about">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                        <h2>What is Access California?</h2>
-                        <p>Access California is a platform that condenses the eligibility requirements for public programs into one simple form. Currently we help determine if you're eligible for:</p>
-                    </div>
-                    <div class="col-sm-3"></div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="about">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-shopping-basket icon"></i>
-                            <br>
-                            <p style="font-weight: 600">CalFresh</p>
-                            <p>Get money to help put food on the table.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-heartbeat" style="color: #933749;"></i>
-                            <br>
-                            <p style="font-weight: 600">MediCal</p>
-                            <p>Get insurance to help you stay healthy.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-usd" style="color: #933749;"></i>
-                            <br>
-                            <p style="font-weight: 600">CalWORKS</p>
-                            <p>Get cash for housing, food and more.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3"></div>
-                </div>
-            </div>
             
             <div class="row gray">
 
@@ -100,72 +59,55 @@
 
                             <div class="question" ng-show="wantsCalWORKS">
                                 <p>Is your family expecting a child?</p>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
                                     <label><input type="checkbox" name="fc" ng-model="isPregnant">Yes</input></label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: isNotPregnant}">
                                     <label><input type="checkbox" name="fc" ng-model="isNotPregnant">No</input></label>
                                 </div>
                             </div>
 
                             <div class="question" ng-show="isNotPregnant">
                                 <p>Do you have a child under the age of 19?</p>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder19}">
                                     <label><input type="checkbox" name="fc" ng-model="hasChildUnder19">Yes</input></label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: notChildUnder19}">
                                     <label><input type="checkbox" name="fc" ng-model="notChildUnder19">No</input></label>
                                 </div>
                             </div>
 
-
                             <div class="question" ng-show="hasChildUnder19">
                                 <p>Does your child have a parent who is
                                     Disabled, Deceased or Absent?</p>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: unavailableParent}">
                                     <label><input type="checkbox" name="fc" ng-model="unavailableParent">Yes</input></label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: notUnavailableParent}">
                                     <label><input type="checkbox" name="fc" ng-model="notUnavailableParent">No</input></label>
                                 </div>
                             </div>
 
-
                             <div class="question" ng-show="hasChildUnder19 && notUnavailableParent">
                                 <p>Is the primary earner of your family out of work or working less than 100 hours per month?</p>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: lowIncomeParent}">
                                     <label><input type="checkbox" name="fc" ng-model="lowIncomeParent">Yes</input></label>
                                 </div>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: dummy}">
                                     <label><input type="checkbox" name="fc" ng-model="dummy">No</input></label>
                                 </div>
 
                             </div>
-
-
-
-
-<!--                             <div class="question" ng-show="hasChildUnder19 && notUnavailablParent">
-                                <p>Semantic Check</p>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="fc" ng-model="unavailableParent">Yes</input></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="fc" ng-model="dummy">No</input></label>
-                                </div>
-                            </div> -->
 
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && meetsChildReqs())">
                                 <p>Are you a U.S citizen or a legal nonCitizen?</p>
-                                <div class="checkbox">
+                                <div class="checkbox" ng-class="{checkboxSelected: isCitizen}">
                                     <label><input type="checkbox" name="fc" ng-model="isCitizen">Yes</input></label>
                                 </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="fc" ng-model="dummy">No</input></label>
+                                <div class="checkbox" ng-class="{checkboxSelected: notCitizen}">
+                                    <label><input type="checkbox" name="fc" ng-model="notCitizen">No</input></label>
                                 </div>
                             </div>
-
-
 
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqs())">
                                 <p>How many people live in your household, including yourself?</p>
@@ -183,8 +125,6 @@
                                 </select>
                             </div>
 
-
-
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqs())">
                                 <p>About how much money did your household make last month? <br><br>
                                 $ <input type="text" ng-model="income" required><br>
@@ -196,16 +136,6 @@
                                 $ <input type="text" ng-model="assets" required><br>
                                 </p>
                             </div>
-
-
-
-<!--                             <div class="question" ng-show="wantsCalFresh || wantsCalWORKS">
-                                <p>Are you or someone in your househould over 60 and/or receiving disability payments?</p>
-                                <select ng-model="has60orDisa" required>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select>
-                            </div> -->
 
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqs())">
                                 <p>Select all that apply to you or the people who live with you:</p>
@@ -272,6 +202,48 @@
 
                         </div>
                         <br>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+
+            <div class="row"> 
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h2>What is Access California?</h2>
+                        <p>Access California helps you find out if you're eligible for public programs with one simple form. Currently we help determine if you're eligible for:</p>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2">
+                        <div class="programSupported">
+                            <i class="fa fa-4x fa-shopping-basket icon"></i>
+                            <br>
+                            <p style="font-weight: 600">CalFresh</p>
+                            <p>Get money to help put food on the table.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="programSupported">
+                            <i class="fa fa-4x fa-heartbeat" style="color: #933749;"></i>
+                            <br>
+                            <p style="font-weight: 600">MediCal</p>
+                            <p>Get insurance to help you stay healthy.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="programSupported">
+                            <i class="fa fa-4x fa-usd" style="color: #933749;"></i>
+                            <br>
+                            <p style="font-weight: 600">CalWORKS</p>
+                            <p>Get cash for housing, food and more.</p>
+                        </div>
                     </div>
                     <div class="col-sm-3"></div>
                 </div>

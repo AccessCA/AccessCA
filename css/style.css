@@ -23,6 +23,25 @@ body {
     padding: 0;
 }
 
+.button {
+    width: 15%;
+    margin: 0 auto;
+    padding-left: 12px;
+    margin-left: -6px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.button:hover {
+    background-color: #933749;
+    color: white;
+    font-weight: 600;
+}
+
 /* Top Section */
 #header {
     background: 
@@ -69,6 +88,11 @@ body {
 
     #header {
         height: 50% !important;
+    }
+
+
+    .button {
+        width: 30%;
     }
 }
 
@@ -120,22 +144,6 @@ h3 {
     width: 80%;
     margin: 0 auto;
     min-width: 300px;
-}
-
-.button {
-    width: 100px;
-    padding-left: 12px;
-    margin-left: -6px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Arial', sans-serif;
-}
-
-.button:hover {
-    background-color: white;
-    color: black;
 }
 
 input:focus,
@@ -342,4 +350,8 @@ p {
     padding-left: 10px;
     margin-top: 0px;
     padding-right: 10px;
+}
+
+p a {
+    text-decoration: none;
 }
