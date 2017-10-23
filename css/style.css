@@ -167,6 +167,23 @@ input {
     font-family: 'Lato', sans-serif;
 }
 
+.radio {
+    border-radius: 5px;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: black;
+    border: 1px solid black; 
+    width: 95%;
+    padding: 10px 10px;
+    background: white;  
+}
+
+.sp-input-radio 
+{
+margin:0em 0em 0 0;
+}
+
 .checkbox {
     border-radius: 5px;
     display: inline-block;
@@ -223,30 +240,6 @@ p {
     color: #ffffff;
     text-align: center;
     margin-top: 10px;
-}
-
-/* Bouncy Scroll Indicator */
-.scroll-indicator { 
-    color: white;
-    position: relative;
-    left: 48%;
-    font-size: 30px;
-    margin-top: 17%;
-    top: 48%;
-    -webkit-animation: bounce 1s infinite; 
-    animation: bounce 1s infinite;
-}
-
-@-webkit-keyframes bounce {
-    0% { top: 48%; }
-    50%   { top: 50%; }
-    100% { top: 48%; }
-}
-
-@keyframes bounce {
-    0% { top: 48%; }
-    50%   { top: 50%; }
-    100% { top: 48%; }
 }
 
 .question {
