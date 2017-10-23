@@ -10,7 +10,6 @@
         <!-- ANGULAR -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script type="text/javascript" src="js/root.js"></script>
-        <script type="text/javascript" src="js/form.js"></script>
 
         <!-- BOOTSTRAP --> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -78,7 +77,7 @@
                                     </div>
                                 </div>
 
-                                <div class="question" ng-show="!isPregnant">
+                                <div class="question" ng-show="!isPregnant && !form.pregnant.$pristine">
                                     <p>Do you have a child under the age of 19?</p>
 
                                     <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder19}">
