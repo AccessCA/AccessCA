@@ -9,6 +9,13 @@ var app = angular.module('root', [])
         $scope.assets;
         $scope.numberInHousehold;
 
+        $scope.isDisabled = false
+        $scope.age
+        $scope.isRefugee = false
+        $scope.nursingHome = false
+        $scope.hasCancer = false
+ 
+
         $scope.isStudent;
         $scope.hasSSI;
         $scope.numberOnSSI;
@@ -21,9 +28,13 @@ var app = angular.module('root', [])
 
         $scope.hasChildUnder19 = false;
 
-        $scope.unavailableParent = false;
-        $scope.notUnavailableParent = false;
-        $scope.lowIncomeParent = false;
+        $scope.unavailableParentCalWORKS = false;
+        $scope.notUnavailableParentCalWORKS = false;
+        $scope.lowIncomeParentCalWORKS = false;
+
+        $scope.unavailableParentMediCaL= false;
+        $scope.notUnavailableParentMediCal = false;
+        $scope.lowIncomeParentMediCal = false;
 
         $scope.isCalFreshEligible = function () { 
 
@@ -34,16 +45,35 @@ var app = angular.module('root', [])
             && $scope.isCitizen; 
         };
 
+        $scope.isMediCalEligible = function () { 
+
+            return $scope.income < $scope.MediCalIncome()
+                || $scope.age < 21
+                || $scope.age > 64
+                || $scope.unavailableParentMediCaL
+                || $scope.lowIncomeParentMediCal
+                || $scope.otherMediCalRequirements()
+                
+        };
+
         $scope.maxWorksIncome = function (x) { return 414 + 318 * x - 8 * x ^ 2}
+
+        $scope.MediCalIncome = function (x) { return 16395 +  ($scope.numberInHousehold - 1) * 5741}
+            
+
+
+        $scope.otherMediCalRequirements = function () {return $scope.isRefugee || $scope.nursingHome || $scope.hasCancer || $scope.isDisabled || $scope.isPregnant}
 
 
         $scope.isCalWORKSEligible = function () {
-            return $scope.meetsChildReqs()
+            return $scope.meetsChildReqsCalWORKS()
             && $scope.isCitizen
             && $scope.income <= (420 + 320 * $scope.numberInHousehold - 8 * ($scope.numberInHousehold) ^ 2)
             && ($scope.assets <= 2250 || (($scope.has60 || $scope.hasDisabled) && ($scope.assets <= 3250 )));
         };
 
         $scope.checkSSINumber = function () { return $scope.numberInHousehold > 1 && $scope.hasSSI == "yes"; };
-        $scope.meetsChildReqs = function () { return $scope.lowIncomeParent || $scope.unavailableParent || $scope.isPregnant}
+        $scope.meetsChildReqsMediCal = function () { return $scope.lowIncomeParentMediCal || $scope.unavailableParentMediCaL}
+        $scope.meetsChildReqsCalWORKS = function () { return $scope.lowIncomeParentCalWORKS || $scope.unavailableParentCalWORKS || $scope.isPregnant}
+
     });
