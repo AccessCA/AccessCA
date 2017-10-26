@@ -4,7 +4,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/smoothscroll.js"></script>
 
-        <!-- ICONS -->
+        <!-- rediconS -->
         <script src="https://use.fontawesome.com/7a4d9a6531.js"></script>
 
         <!-- ANGULAR -->
@@ -43,11 +43,12 @@
                 <div class="body-events">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <h2>Let's Get Started!</h2>
+                        <a name="top"></a>
                         <div ng-app="form">
+
                           <div ng-controller="formController">
                               <form name="form" novalidate ng-show="!form.$submitted">
-
+                                <h2>Let's Get Started!</h2>
                                 <div class="question">
                                 <p>What are you interested in applying for?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
@@ -109,9 +110,6 @@
 
                                 </p>
                             </div>
-
-
-
 
                             <div class="question" ng-show="isNotPregnant && wantsCalWORKS">
                                 <p>Do you have a child under the age of 19?</p>
@@ -262,8 +260,6 @@
                                 </select>
                             </div>
 
-
-
                             <p ng-show="wantsCalFresh && isCalFreshEligible()">Great! It looks like your household may qualify for CalFresh!</p>
 
                             <p ng-show="wantsCalFresh && !isCalFreshEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh. If you can, please fill in more information.</p>
@@ -283,10 +279,66 @@
                         </form>
 
                         <div ng-show="form.$submitted">
-                                <pre>CalFresh eligible = {{isCalFreshEligible()}}</pre>
-                                <pre>CalWORKS eligible = {{isCalWORKSEligible()}}</pre>
-                                <pre>MediCal eligible = {{isMediCalEligible()}}</pre>
-                            </div>
+                                <div class="eligiblebox" ng-show="isCalFreshEligible() && wantsCalFresh">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-shopping-basket redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalFresh <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for CalFresh!</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isCalFreshEligible() && wantsCalFresh">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-shopping-basket redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalFresh <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for CalFresh.</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="isMediCalEligible() && wantsMediCal">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-heartbeat redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>MediCal <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for MediCal!</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isMediCalEligible() && wantsMediCal">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-heartbeat redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>MediCal <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for MediCal.</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="isCalWORKSEligible() && wantsCalWORKS">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalWORKS <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for CalWORKS!</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isCalWORKSEligible() && wantsCalWORKS">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalWORKS <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for CalWORKS.</p>
+                                    </div>
+                                </div>
+                        </div>
 
                         </div>
                         </div>
@@ -314,7 +366,7 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-2">
                         <div class="programSupported">
-                            <i class="fa fa-4x fa-shopping-basket icon"></i>
+                            <i class="fa fa-4x fa-shopping-basket redicon"></i>
                             <br>
                             <p style="font-weight: 600">CalFresh</p>
                             <p>Get money to help put food on the table.</p>
