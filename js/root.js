@@ -2,9 +2,9 @@
   'use strict';
 angular.module('form', [])
   .controller('formController', ['$scope', function($scope) {
-      $scope.wantsCalFresh = false;
-      $scope.wantsMediCal = false;
-      $scope.wantsCalWORKS = false;
+        $scope.wantsCalFresh = false;
+        $scope.wantsMediCal = false;
+        $scope.wantsCalWORKS = false;
 
         $scope.isCitizen = false;
         $scope.income;
@@ -25,17 +25,17 @@ angular.module('form', [])
         $scope.has60 = false;
         $scope.hasDisabled = false;
 
-        $scope.isNotPregnant = false;
-        $scope.isPregnant = false;
+        // $scope.isNotPregnant = false;
+        $scope.isPregnant;
 
-        $scope.hasChildUnder19 = false;
+        $scope.hasChildUnder19;
 
-        $scope.unavailableParentCalWORKS = false;
-        $scope.notUnavailableParentCalWORKS = false;
-        $scope.lowIncomeParentCalWORKS = false;
+        $scope.hasUnavailableParentCalWORKS;
+        // $scope.notUnavailableParentCalWORKS = false;
+        $scope.hasLowIncomeParentCalWORKS = false;
 
-        $scope.unavailableParentMediCaL= false;
-        $scope.notUnavailableParentMediCal = false;
+        $scope.hasUnavailableParentMediCaL;
+        // $scope.notUnavailableParentMediCal = false;
         $scope.lowIncomeParentMediCal = false;
 
         $scope.isCalFreshEligible = function () { 
