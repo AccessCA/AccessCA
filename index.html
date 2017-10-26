@@ -43,8 +43,11 @@
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
                         <h2>Let's Get Started!</h2>
-                        <div ng-app="root" ng-controller="controller">
-                            <div class="question">
+                        <div ng-app="form">
+                          <div ng-controller="formController">
+                              <form name="form" novalidate ng-show="!form.$submitted">
+
+                                <div class="question">
                                 <p>What are you interested in applying for?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
                                     <label><input type="checkbox" name="fc" ng-model="wantsCalFresh">CalFresh</input></label>
@@ -87,12 +90,22 @@
                                 </div>
                             </div>
 
+                            <div class="question" ng-show="wantsCalWORKS">
+                                    <p>Is your family expecting a child?</p>
 
+                                    <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
+                                        <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="true">Yes</input></label>
+                                    </div>
 
+                                    <div class="checkbox" ng-class="{checkboxSelected: !isPregnant && !form.pregnant.$pristine}">
+                                        <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="false">No</input></label>
+                                    </div>
+                                </div>
 
                             <div class="question" ng-show="wantsMediCal && !otherMediCalRequirements()">
                                 <p>What is your age? <br><br>
-                                $ <input type="text" ng-model="age" required><br>
+                                $ <input type="text" ng-model="age" ><br>
+
                                 </p>
                             </div>
 
@@ -120,6 +133,7 @@
                             </div>
 
                             <div class="question" ng-show="hasChildUnder19 && wantsCALWORKS ">
+                              
                                 <p>Does your child have a parent who is
                                     Disabled, Deceased or Absent?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: unavailableParentCalWORKS}">
@@ -175,7 +189,7 @@
 
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements()) ">
                                 <p>How many people live in your household, including yourself?</p>
-                                <select ng-model="numberInHousehold" required>
+                                <select ng-model="numberInHousehold" >
                                     <option value="1">Just me!</option>
                                     <option value="2">2 people</option>
                                     <option value="3">3 people</option>
@@ -191,13 +205,13 @@
 
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqs()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements()) ">
                                 <p>About how much money did your household make last month? <br><br>
-                                $ <input type="text" ng-model="income" required><br>
+                                $ <input type="text" ng-model="income" ><br>
                                 </p>
                             </div>
 
                             <div class="question" ng-show="wantsCalWORKS && isCitizen && meetsChildReqs()">
                                 <p>What is the total net worth of your assets? <br><br>
-                                $ <input type="text" ng-model="assets" required><br>
+                                $ <input type="text" ng-model="assets" ><br>
                                 </p>
                             </div>
 
@@ -215,7 +229,7 @@
 
                             <div class="question" ng-show="wantsCalFresh">
                                 <p>Are you or someone in your househould a student?</p>
-                                <select ng-model="isStudent" required>
+                                <select ng-model="isStudent" >
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
@@ -223,7 +237,7 @@
 
                             <div class="question" ng-show="wantsCalFresh">
                                 <p>Are you or someone in your househould receiving SSI/SSP?</p>
-                                <select ng-model="hasSSI" required>
+                                <select ng-model="hasSSI" >
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
@@ -233,7 +247,7 @@
 
                             <div class="question" ng-show="checkSSINumber()">
                                 <p>How many people in your household receive SSI/SSP?</p>
-                                <select ng-model="numberOnSSI" required>
+                                <select ng-model="numberOnSSI" >
                                     <option value="1">1 person</option>
                                     <option value="2">2 people</option>
                                     <option value="3" ng-show="numberInHousehold > 2">3 people</option>
@@ -264,9 +278,21 @@
                             <p ng-show="wantsMediCal  && !(isCalWORKSEligible() || isMediCalEligible())">Unfortunately, it doesn't look like your household will qualify for MediCal. If you can, please fill in more information.</p>
 
 
+                            <button type="submit" ng-click="submit()" ng-disabled="!form.$valid">Submit</button>
+                        </form>
+
+                        <div ng-show="form.$submitted">
+                                <pre>CalFresh eligible = {{isCalFreshEligible()}}</pre>
+                                <pre>CalWORKS eligible = {{isCalWORKSEligible()}}</pre>
+                                <pre>MediCal eligible = {{isMediCalEligible()}}</pre>
+                            </div>
+
                         </div>
-                        <br>
+                        </div>
+
+             
                     </div>
+
                     <div class="col-sm-3"></div>
                 </div>
             </div>

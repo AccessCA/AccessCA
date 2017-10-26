@@ -1,8 +1,10 @@
-var app = angular.module('root', [])
-    .controller('controller', function($scope) {
-    	$scope.wantsCalFresh = false;
-    	$scope.wantsMediCal = false;
-    	$scope.wantsCalWORKS = false;
+(function(angular) {
+  'use strict';
+angular.module('form', [])
+  .controller('formController', ['$scope', function($scope) {
+      $scope.wantsCalFresh = false;
+      $scope.wantsMediCal = false;
+      $scope.wantsCalWORKS = false;
 
         $scope.isCitizen = false;
         $scope.income;
@@ -76,4 +78,6 @@ var app = angular.module('root', [])
         $scope.meetsChildReqsMediCal = function () { return $scope.lowIncomeParentMediCal || $scope.unavailableParentMediCaL}
         $scope.meetsChildReqsCalWORKS = function () { return $scope.lowIncomeParentCalWORKS || $scope.unavailableParentCalWORKS || $scope.isPregnant}
 
-    });
+  }]);
+})(window.angular);
+
