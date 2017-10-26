@@ -1,6 +1,6 @@
 (function(angular) {
   'use strict';
-angular.module('form', [])
+angular.module('form', ['ngRoute'])
   .controller('formController', ['$scope', function($scope) {
         $scope.wantsCalFresh = false;
         $scope.wantsMediCal = false;
