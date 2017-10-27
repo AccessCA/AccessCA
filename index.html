@@ -285,6 +285,8 @@
                             <p ng-show="wantsMediCal  && !(isCalWORKSEligible() || isMediCalEligible())">Unfortunately, it doesn't look like your household will qualify for MediCal. If you can, please fill in more information.</p>
                             -->
 
+                            <a href="#top" onClick="ga('send', 'event', { eventCategory: 'order_now', eventAction: 'button_click', eventLabel: 'section_intro'});">Order Now</a>
+
                             <button type="submit" ng-click="submit()" onclick="ga('send', 'event', 'Videos', 'play', 'Fall Campaign');" ng-disabled="!form.$valid">Submit</button>
                         </form>
 
