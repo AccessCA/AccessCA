@@ -6,7 +6,7 @@ angular.module('form', ['ngRoute'])
         $scope.wantsMediCal = false;
         $scope.wantsCalWORKS = false;
 
-        $scope.isCitizen = false;
+        $scope.isCitizen;
         $scope.income;
         $scope.assets;
         $scope.numberInHousehold;
@@ -25,25 +25,23 @@ angular.module('form', ['ngRoute'])
         $scope.has60 = false;
         $scope.hasDisabled = false;
 
-        // $scope.isNotPregnant = false;
         $scope.isPregnant;
-
         $scope.hasChildUnder19;
+        $scope.hasChildUnder21;
+
 
         $scope.hasUnavailableParentCalWORKS;
-        // $scope.notUnavailableParentCalWORKS = false;
-        $scope.hasLowIncomeParentCalWORKS = false;
+        $scope.hasLowIncomeParentCalWORKS;
 
-        $scope.hasUnavailableParentMediCaL;
-        // $scope.notUnavailableParentMediCal = false;
-        $scope.lowIncomeParentMediCal = false;
+        $scope.hasUnavailableParentMediCal;
+        $scope.hasLowIncomeParentMediCal;
 
         $scope.isCalFreshEligible = function () { 
 
             return $scope.income <= 1915 + 670 * ($scope.numberInHousehold - 1) 
-            && !($scope.isStudent == "yes" && $scope.numberInHousehold == 1) 
+            && !($scope.isStudent && $scope.numberInHousehold == 1) 
             && !($scope.numberInHousehold == $scope.numberOnSSI) 
-            && !($scope.numberInHousehold == 1 && $scope.hasSSI == "yes")
+            && !($scope.numberInHousehold == 1 && $scope.hasSSI)
             && $scope.isCitizen; 
         };
 
@@ -52,20 +50,11 @@ angular.module('form', ['ngRoute'])
             return $scope.income < $scope.MediCalIncome()
                 || $scope.age < 21
                 || $scope.age > 64
-                || $scope.unavailableParentMediCaL
-                || $scope.lowIncomeParentMediCal
+                || $scope.hasUnavailableParentMediCal
+                || $scope.hasLowIncomeParentMediCal
                 || $scope.otherMediCalRequirements()
                 
         };
-
-        $scope.maxWorksIncome = function (x) { return 414 + 318 * x - 8 * x ^ 2}
-
-        $scope.MediCalIncome = function (x) { return 16395 +  ($scope.numberInHousehold - 1) * 5741}
-            
-
-
-        $scope.otherMediCalRequirements = function () {return $scope.isRefugee || $scope.nursingHome || $scope.hasCancer || $scope.isDisabled || $scope.isPregnant}
-
 
         $scope.isCalWORKSEligible = function () {
             return $scope.meetsChildReqsCalWORKS()
@@ -74,9 +63,30 @@ angular.module('form', ['ngRoute'])
             && ($scope.assets <= 2250 || (($scope.has60 || $scope.hasDisabled) && ($scope.assets <= 3250 )));
         };
 
-        $scope.checkSSINumber = function () { return $scope.numberInHousehold > 1 && $scope.hasSSI == "yes"; };
-        $scope.meetsChildReqsMediCal = function () { return $scope.lowIncomeParentMediCal || $scope.unavailableParentMediCaL}
-        $scope.meetsChildReqsCalWORKS = function () { return $scope.lowIncomeParentCalWORKS || $scope.unavailableParentCalWORKS || $scope.isPregnant}
+
+//  Utils
+
+        $scope.checkSSINumber = function () {
+            return $scope.numberInHousehold > 1 && $scope.hasSSI;
+        }
+
+            
+        $scope.MediCalIncome = function () {
+            return 16395 + ($scope.numberInHousehold - 1) * 5741;
+        }
+
+        $scope.otherMediCalRequirements = function () {
+            return $scope.isRefugee || $scope.nursingHome || $scope.hasCancer || $scope.isDisabled || $scope.isPregnant;
+        }
+
+
+
+        $scope.meetsChildReqsMediCal = function () {
+            return $scope.hasLowIncomeParentMediCal || $scope.hasUnavailableParentMediCal
+        }
+        $scope.meetsChildReqsCalWORKS = function () {
+            return $scope.hasLowIncomeParentCalWORKS || $scope.hasUnavailableParentCalWORKS || $scope.isPregnant;
+        }
 
   }]);
 })(window.angular);
