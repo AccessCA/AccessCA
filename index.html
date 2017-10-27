@@ -317,7 +317,7 @@
                              <p ng-show="wantsMediCal && (isCalWORKSEligible() || isMediCalEligible())">Great! It looks like your household may qualify for MediCal!</p>
 
                             <p ng-show="wantsMediCal  && !(isCalWORKSEligible() || isMediCalEligible())">Unfortunately, it doesn't look like your household will qualify for MediCal. If you can, please fill in more information.</p>
-                            -->
+                            
 
                             <p id="demo" onclick="myFunction()">Click me to change my text color.</p>
 
@@ -329,7 +329,9 @@
                             </script>
 
                             <a href="#top" onClick="_gaq.push(['_trackEvent', 'order_now', 'button_click', 'section_intro', '0']);">Order Now</a>
-
+                            
+                            -->
+                            
                             <button type="submit" ng-click="submit()" onClick="ga('send', 'event', 'Videos', 'play', 'Fall Campaign');" ng-disabled="!form.$valid">Submit</button>
                         </form>
 
