@@ -184,6 +184,20 @@ input[type="checkbox"] {
     border-bottom: 1px solid black; 
 }
 
+input[type="text"] {
+    background: white;
+    width: 95%;
+    font-size: 15px;  
+    color: black;
+    font-family: 'Lato', sans-serif;
+    padding: 10px 10px;
+    border-color: black;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid black; 
+}
+
 input[type="radio"] {
     margin-left: -18px;
     float: left; 
