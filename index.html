@@ -115,16 +115,16 @@
                             </div> -->
 
                             <div class="question" ng-show="wantsCalWORKS">
-                                    <p>Is your family expecting a child?</p>
+                                <p>Is your family expecting a child?</p>
 
-                                    <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
-                                        <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="true">Yes</input></label>
-                                    </div>
-
-                                    <div class="checkbox" ng-class="{checkboxSelected: !isPregnant && !form.pregnant.$pristine}">
-                                        <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="false">No</input></label>
-                                    </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
+                                    <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="true">Yes</input></label>
                                 </div>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: !isPregnant && !form.pregnant.$pristine}">
+                                    <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="false">No</input></label>
+                                </div>
+                            </div>
 <!-- 
                             <div class="question" ng-show="wantsMediCal && !">
                                 <p>What is your age? <br><br>
@@ -282,11 +282,12 @@
 
                             <div class="question" ng-show="wantsCalFresh">
                                 <p>Are you or someone in your househould receiving SSI/SSP?</p>
+                                <span class="description">Individuals who already receive Supplemental Security Income/State Supplementary Payment (SSI/SSP) are not eligible for CalFresh.</span>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasSSI}">
-                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value= "true" >Yes</input></label>
+                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="true" >Yes</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasSSI && !form.SSI.$pristine}">
-                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value = "false" >No</input></label>
+                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="false" >No</input></label>
                                 </div>
                             </div>
 
