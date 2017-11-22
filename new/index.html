@@ -1,0 +1,478 @@
+<html>
+    <head >
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108809105-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-108809105-1');
+        </script>
+
+        <!-- Google Analytics -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-108809105-1', 'auto');
+        ga('send', 'pageview');
+        </script>
+        <!-- End Google Analytics -->
+
+        <!-- SMOOTH SCROLL -->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/smoothscroll.js"></script>
+
+        <!-- rediconS -->
+        <script src="https://use.fontawesome.com/7a4d9a6531.js"></script>
+
+        <!-- ANGULAR -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
+        <script type="text/javascript" src="js/root.js"></script>
+
+        <!-- BOOTSTRAP --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- STYLE SHEET -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="header">
+                <div id="title">
+                    <img src="img/bear.png" width="10%"><br>
+                    <h1>ACCESS CALIFORNIA</h1></a>
+                    <div id="text">
+                        <p>We're here to help you access the services you're entitled to.</p>
+                    </div>
+                    <br>
+                    <input class="button" type="button" value="Learn More" onclick="window.location.href='about.html'"/>
+                </div>
+                <!--<a href="#scrolled" class="smoothScroll"><div class="scroll-indicator fa fa-chevron-down"></div></a>-->
+            </div>
+
+            <a name="scrolled"></a>
+            
+            <div class="row gray">
+
+                <div class="body-events">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <a name="top"></a>
+                        <div ng-app="form">
+
+                          <div ng-controller="formController">
+                              <form name="form" novalidate ng-show="!form.$submitted">
+                                <h2>Let's Get Started!</h2>
+                                <div class="question">
+                                <p>What are you interested in applying for?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
+                                    <label><input type="checkbox" name="fc" ng-model="wantsCalFresh">CalFresh</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: wantsMediCal}">
+                                    <label><input type="checkbox" name="fc" ng-model="wantsMediCal">MediCal</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: wantsCalWORKS}">
+                                    <label><input type="checkbox" name="fc" ng-model="wantsCalWORKS">CalWORKS</input></label>
+                                </div>
+                            </div>
+
+
+                            <div class="question" ng-show="wantsMediCal">
+                                <p>Please select any that apply</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: isDisabled}">
+                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="isDisabled"> I am Disabled or Blind</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: nursingHome">
+                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="nursingHome"> I am in a skilled nursing or intermediate care home</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: isRefugee}">
+                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="isRefugee"> I have refugee status for a limited time</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasCancer}">
+                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="hasCancer"> I have been diagnozed for breast and/or cervical cancer</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
+                                    <label><input type="checkbox" name="pregnant" ng-model="isPregnant"> My family is expecting a child</input></label>
+                                </div>
+                            </div>
+<!-- 
+                            <div class="question" ng-show="wantsCalWORKS">
+                                <p>Is your family expecting a child?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
+                                    <label><input type="checkbox" name="fc" ng-model="isPregnant">Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: isNotPregnant}">
+                                    <label><input type="checkbox" name="fc" ng-model="isNotPregnant">No</input></label>
+                                </div>
+                            </div> -->
+
+                            <div class="question" ng-show="wantsCalWORKS">
+                                <p>Is your family expecting a child?</p>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
+                                    <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="true">Yes</input></label>
+                                </div>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: !isPregnant && !form.pregnant.$pristine}">
+                                    <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="false">No</input></label>
+                                </div>
+                            </div>
+<!-- 
+                            <div class="question" ng-show="wantsMediCal && !">
+                                <p>What is your age? <br><br>
+                                <input type="text" ng-model="age" ><br>
+                                </p>
+                            </div> -->
+
+                            <div class="question" ng-show="wantsMediCal && !otherMediCalRequirements()">
+                                <p>What is your age? <br><br>
+                                <input type="text" ng-model="age" ><br>
+                                </p>
+                            </div>
+
+
+                            <div class="question" ng-show="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine">
+                                <p>Do you have a child under the age of 19?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder19}">
+                                    <label><input type="radio" name="childUnder19" ng-model="hasChildUnder19" ng-value="true">Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasChildUnder19 && !form.childUnder19.$pristine}">
+                                    <label><input type="radio" name="childUnder19" ng-model="hasChildUnder19" ng-value="false" >No</input></label>
+                                </div>
+                            </div>
+
+                            <div class="question" ng-show="!otherMediCalRequirements() && wantsMediCal &&  age < 65 && age > 20">
+                                <p>Do you have a child under the age of 21?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder21}">
+                                    <label><input type="radio" name="childUnder21" ng-model="hasChildUnder21" ng-value = "true" 
+                                    >Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasChildUnder21 && !form.childUnder21.$pristine}">
+                                    <label><input type="radio" name="childUnder21" ng-model="hasChildUnder21" ng-value = "false"
+                                    >No</input></label>
+                                </div>
+                            </div>
+
+                            <div class="question" ng-show="hasChildUnder19 && wantsCalWORKS ">
+                                <p>Does your child have a parent who is
+                                    Disabled, Deceased or Absent?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentCalWORKS}">
+                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="true">Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasUnavailableParentCalWORKS && !form.unvailableParentCalWORKS.$pristine}">
+                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="false"> No</input></label>
+                                </div>
+                            </div>
+
+                            <div class="question" ng-show="hasChildUnder21 && wantsMediCal ">
+                                <p>Does your child have a parent who is
+                                    Disabled, Deceased or Absent?</p>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentMediCal}">
+                                    <label><input type="radio" name="unavailableParentMediCal" ng-model="hasUnavailableParentMediCal" 
+                                    ng-value="true">Yes</input></label>
+                                </div>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasUnavailableParentMediCal && !form.unavailableParentMediCal.$pristine}">
+                                    <label><input type="radio" name="unavailableParentMediCal" ng-model="hasUnavailableParentMediCal" 
+                                    ng-value="false">No</input></label>
+                                </div>
+                            </div>
+
+                            <div class="question" ng-show="hasChildUnder19 && !hasUnavailableParentCalWORKS && !form.unvailableParentCalWORKS.$pristine">
+                                <p>Is the primary earner of your family out of work or working less than 100 hours per month?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasLowIncomeParentCalWORKS}">
+                                    <label><input type="radio" name="lowIncomeParentCalWORKS" ng-model="hasLowIncomeParentCalWORKS" value="true" >Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasLowIncomeParentCalWORKS && !form.lowIncomeParentCalWORKS.$pristine}">
+                                    <label><input type="radio" name="lowIncomeParentCalWORKS" ng-model="hasLowIncomeParentCalWORKS" 
+                                    ng-value="false" >No</input></label>
+                                </div>
+
+                            </div>
+
+                            <div class="question" ng-show="hasChildUnder21 && !hasUnavailableParentMediCal && !form.unvailableParentMediCal.$pristine">
+                                <p>Is the primary earner of your family out of work or working less than 100 hours per month?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasLowIncomeParentMediCal}">
+                                    <label><input type="radio" name="lowIncomeParentMediCal" ng-model="hasLowIncomeParentMediCal"
+                                    ng-value="true">Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasLowIncomeParentMediCal && !form.lowIncomeParentMediCal.$pristine}">
+                                    <label><input type="radio" name="lowIncomeParentMediCal" ng-model="hasLowIncomeParentMediCal"
+                                    ng-value="false" >No</input></label>
+                                </div>
+
+                            </div>
+
+                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && meetsChildReqsCalWORKS())" >
+                                <p>Are you a U.S citizen or a legal nonCitizen?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: isCitizen}">
+                                    <label><input type="radio" name="citizen" ng-model="isCitizen" ng-value= "true" >Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !isCitizen && !form.citizen.$pristine}">
+                                    <label><input type="radio" name="citizen" ng-model="isCitizen" ng-value = "false" >No</input></label>
+                                </div>
+                            </div>
+
+                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine)">
+                                <p>How many people live in your household, including yourself?</p>
+                                <select ng-model="numberInHousehold" >
+                                    <option value="1">Just me!</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3">3 people</option>
+                                    <option value="4">4 people</option>
+                                    <option value="5">5 people</option>
+                                    <option value="6">6 people</option>
+                                    <option value="7">7 people</option>
+                                    <option value="8">8 people</option>
+                                    <option value="9">9 people</option>
+                                    <option value="10">10 people</option>
+                                </select>
+                            </div>
+<!--                             && !form.childUnder21.$pristine
+ -->
+
+                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine) ">
+                                <p>About how much money did your household make last month? <br><br>
+                                $ <input type="text" ng-model="income" ><br>
+                                </p>
+                            </div>
+
+                            <div class="question" ng-show="wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()">
+                                <p>What is the total net worth of your assets? <br><br>
+                                $ <input type="text" ng-model="assets" ><br>
+                                </p>
+                            </div>
+
+                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250)">
+                                <p>Select all that apply to you or the people who live with you:</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasDisabled}">
+                                    <label><input type="checkbox" name="fc" ng-model="hasDisabled">Someone is disabled</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: has60}">
+                                    <label><input type="checkbox" name="fc" ng-model="has60">Someone is age 60 or older</input></label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="question" ng-show="wantsCalFresh">
+                                <p>Are you or someone in your househould a student?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: isStudent}">
+                                    <label><input type="radio" name="student" ng-model="isStudent" ng-value= "true" >Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !isStudent && !form.student.$pristine}">
+                                    <label><input type="radio" name="student" ng-model="isStudent" ng-value = "false" >No</input></label>
+                                </div>
+                            </div>
+
+<!--                                 <select ng-model="isStudent" >
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div> -->
+
+                            <div class="question" ng-show="wantsCalFresh">
+                                <p>Are you or someone in your househould receiving SSI/SSP?</p>
+                                <span class="description">Individuals who already receive Supplemental Security Income/State Supplementary Payment (SSI/SSP) are not eligible for CalFresh.</span>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasSSI}">
+                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="true" >Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasSSI && !form.SSI.$pristine}">
+                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="false" >No</input></label>
+                                </div>
+                            </div>
+
+
+<!--                                 <select ng-model="hasSSI" >
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div> -->
+
+
+
+                            <div class="question" ng-show="checkSSINumber()">
+                                <p>How many people in your household receive SSI/SSP?</p>
+                                <select ng-model="numberOnSSI" >
+                                    <option value="1">1 person</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3" ng-show="numberInHousehold > 2">3 people</option>
+                                    <option value="4" ng-show="numberInHousehold > 3">4 people</option>
+                                    <option value="5" ng-show="numberInHousehold > 4">5 people</option>
+                                    <option value="6" ng-show="numberInHousehold > 5">6 people</option>
+                                    <option value="7" ng-show="numberInHousehold > 6">7 people</option>
+                                    <option value="8" ng-show="numberInHousehold > 7">8 people</option>
+                                    <option value="9" ng-show="numberInHousehold > 8">9 people</option>
+                                    <option value="10" ng-show="numberInHousehold > 9">10 people</option>
+                                </select>
+                            </div>
+
+                            <!--
+                            <p ng-show="wantsCalFresh && isCalFreshEligible()">Great! It looks like your household may qualify for CalFresh!</p>
+
+                            <p ng-show="wantsCalFresh && !isCalFreshEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh. If you can, please fill in more information.</p>
+
+                            <p ng-show="wantsCalWORKS && !isCalWORKSEligible()">Unfortunately, it doesn't look like your household will qualify for CalWORKS. If you can, please fill in more information.</p>
+
+
+                            <p ng-show="wantsCalWORKS && isCalWORKSEligible()">Great! It looks like your household may qualify for CalWORKS!</p>
+
+                            
+                             <p ng-show="wantsMediCal && (isCalWORKSEligible() || isMediCalEligible())">Great! It looks like your household may qualify for MediCal!</p>
+
+                            <p ng-show="wantsMediCal  && !(isCalWORKSEligible() || isMediCalEligible())">Unfortunately, it doesn't look like your household will qualify for MediCal. If you can, please fill in more information.</p>
+                            
+
+                            <p id="demo" onclick="myFunction()">Click me to change my text color.</p>
+
+                            <script>
+                            function myFunction() {
+                                document.getElementById("demo").style.color = "red";
+                                ga('send', 'event', 'Videos', 'play', 'Fall Campaign');
+                            }
+                            </script>
+
+                            <a href="#top" onClick="_gaq.push(['_trackEvent', 'order_now', 'button_click', 'section_intro', '0']);">Order Now</a>
+                            
+                            -->
+
+                            <button type="submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick');" ng-disabled="!form.$valid">Submit</button>
+                        </form>
+
+                        <div ng-show="form.$submitted">
+                                <div class="eligiblebox" ng-show="isCalFreshEligible() && wantsCalFresh">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-shopping-basket redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalFresh <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for CalFresh!</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isCalFreshEligible() && wantsCalFresh">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-shopping-basket redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalFresh <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for CalFresh.</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="isMediCalEligible() && wantsMediCal">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-heartbeat redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>MediCal <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for MediCal!</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isMediCalEligible() && wantsMediCal">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-heartbeat redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>MediCal <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for MediCal.</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="isCalWORKSEligible() && wantsCalWORKS">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalWORKS <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for CalWORKS!</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isCalWORKSEligible() && wantsCalWORKS">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>CalWORKS <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for CalWORKS.</p>
+                                    </div>
+                                </div>
+                        </div>
+
+                        </div>
+                        </div>
+
+             
+                    </div>
+
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+
+            <div class="row"> 
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h2>What is Access California?</h2>
+                        <p>Access California helps you find out if you're eligible for public programs with one simple form. Currently we help determine if you're eligible for:</p>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2">
+                        <div class="programSupported">
+                            <i class="fa fa-4x fa-shopping-basket redicon"></i>
+                            <br>
+                            <p style="font-weight: 600">CalFresh</p>
+                            <p>Get money to help put food on the table.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="programSupported">
+                            <i class="fa fa-4x fa-heartbeat redicon"></i>
+                            <br>
+                            <p style="font-weight: 600">MediCal</p>
+                            <p>Get insurance to help you stay healthy.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="programSupported">
+                            <i class="fa fa-4x fa-usd redicon"></i>
+                            <br>
+                            <p style="font-weight: 600">CalWORKS</p>
+                            <p>Get cash for housing, food and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+
+            <!--
+            <div class="row">
+                <div class="col-sm-3" style="background-color:lavender;">3</div>
+                <div class="col-sm-6" style="background-color:lavenderblush;">6</div>
+                <div class="col-sm-3" style="background-color:lavender;">3</div>
+            </div>
+        -->
+
+            <div id="footer">
+                <p>Designed and developed by Courtney Brousseau and Merric de Launey in Computer Science 194.</p>
+            </div>
+        </div>   
+    </body>
+</html>

@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,600,900');
+
+.italic {
+    font-style: italic;
+}
+
+/* Base Formatting */
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+body {
+    background-color: #FFFFFF;
+    margin: 0px;
+}
+
+#container {
+    padding: 0;
+}
+
+.button {
+    width: 15%;
+    margin: 0 auto;
+    padding-left: 12px;
+    margin-left: -6px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.button:hover {
+    background-color: #933749;
+    color: white;
+    font-weight: 600;
+}
+
+/* Top Section */
+#header {
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../img/GoldenGate.jpeg);
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: cover;
+    height: 70%;
+}
+
+#title {
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+/* Adjustment for very narrow/mobile viewports */
+@media (max-width: 700px) {
+    h1 {
+        font-size: 7vw !important;
+
+    }
+    h2 {
+        font-size: 7vw !important;
+    }
+    h3 {
+        font-size: 5vw !important;
+    }
+    p {
+
+        font-size: 15px !important;
+        line-height: 20px !important;
+    }
+    .scroll-indicator { 
+        left: 43% !important;
+    }   
+
+    #header {
+        height: 50% !important;
+    }
+
+
+    .button {
+        width: 30%;
+    }
+}
+
+/* Header Titles and Inputs */
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 40em;
+    font-size: 5vw;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20em;
+    font-size: 3.5vw;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20em;
+    font-size: 2.5vw;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 0px;
+}
+ 
+#text {
+    position: relative;
+    top: 15%;
+    width: 80%;
+    margin: 0 auto;
+    min-width: 300px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+label{
+  float: left;
+}
+
+input[type="button"] {
+    background: white;
+    font-size: 15px;  
+    color: black;
+    font-family: 'Lato', sans-serif;
+    padding: 10px 10px;
+    border-color: black;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid black; 
+}
+
+input[type="checkbox"] {
+    background: white;
+    width: 95%;
+    font-size: 15px;  
+    color: black;
+    font-family: 'Lato', sans-serif;
+    padding: 10px 10px;
+    border-color: black;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid black; 
+}
+
+input[type="text"] {
+    background: white;
+    width: 95%;
+    font-size: 15px;  
+    color: black;
+    font-family: 'Lato', sans-serif;
+    padding: 10px 10px;
+    border-color: black;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px solid black; 
+}
+
+input[type="radio"] {
+    margin-left: -18px;
+    float: left; 
+}
+
+.sp-input-radio 
+{
+margin:0em 0em 0 0;
+}
+
+.iconbox {
+  float: left;
+  margin-right: 10px;
+}
+
+.infobox {
+  float: left;
+}
+
+.eligiblebox {
+    border-radius: 5px;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: black;
+    border: 1px solid black; 
+    width: 95%;
+    padding: 10px 10px;
+    background: white;  
+    margin-bottom: 25px;
+}
+
+.checkbox {
+    border-radius: 5px;
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: black;
+    border: 1px solid black; 
+    width: 95%;
+    padding: 10px 10px;
+    background: white;  
+}
+
+.checkbox:hover {
+    background: #E8E8E8;  
+}
+
+.checkboxSelected:hover {
+    background: #56bf56;  
+}
+
+.checkboxSelected {
+    background: #56bf56;
+    border: 2px solid #00b200;
+    color: white;
+}
+
+select {
+    border-radius: 5px;
+    width: 95%;
+    padding: 10px 10px;
+    border-color: black;
+    border: 1px solid black; 
+    font-size: 15px;
+    background: white;   
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+input.ng-dirty.ng-valid {
+    border-color: #56bf56;
+}
+
+input.ng-dirty.ng-invalid {
+    border-color: red;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-size: 5em;
+    font-size: 2vw;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-size: 12px;
+    font-weight: 300;
+    color: #000000;
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 10px;
+}
+
+.about p {
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    line-height: 20px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+}
+
+.redicon {
+    color: #933749;
+}
+
+.greenicon {
+    color: #56bf56;
+}
+
+.gray {
+    background-color: #E8E8E8;
+}
+
+.programSupported {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.programSupported p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.body-events p{
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    line-height: 20px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+}
+
+.body-events * {
+    overflow: hidden;
+}
+
+.body-events p span{
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 400;
+    background: #A6A6A6;
+    width: auto;
+    display: block;
+    float: left;
+    text-align: center;
+    height: 20px;
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: left;
+}
+
+.body-events a {
+    text-decoration: none;
+    color: #1e3746;
+}
+
+.body-events {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+.about {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+}
+
+/* Footer */
+#footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 80px;
+    background-color: #303030;
+    padding-top: 25px;
+}
+
+#footer p {
+    font-family: 'Lato', sans-serif;
+    color: #AAAAAA;
+    font-size: 20px;
+    line-height: 1;
+    padding-left: 10px;
+    margin-top: 0px;
+    padding-right: 10px;
+}
+
+p a {
+    text-decoration: none;
+}
