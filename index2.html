@@ -47,18 +47,41 @@
         <div id="container">
             <div id="header">
                 <div id="title">
-                    <img src="img/bear.png" width="10%"><br>
-                    <h1>ACCESS CALIFORNIA</h1></a>
-                    <div id="text">
-                        <p>We're here to help you access the services you're entitled to.</p>
-                    </div>
-                    <br>
-                    <input class="button" type="button" value="Learn More" onclick="window.location.href='about.html'"/>
+                    <h1 style="text-shadow: 2px 2px #000000;">ACCESS CALIFORNIA</h1>
                 </div>
                 <!--<a href="#scrolled" class="smoothScroll"><div class="scroll-indicator fa fa-chevron-down"></div></a>-->
             </div>
 
             <a name="scrolled"></a>
+
+            <div class="row"> 
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h2>How does this work?</h2>
+                        <p>Access California helps you find out if you're eligible for public programs with one simple form.</p>
+                        <br>
+                        <ol>
+                          <li>
+                            Fill out the form below and click submit<br>
+                          </li>
+                          <br>
+                          <li>
+                            Find out what you might be eligible for<br>
+                          </li>
+                          <br>
+                          <li>
+                            Apply for the programs you're interested in<br>
+                          </li>
+                          <br>
+                        </ol>  
+                        <input class="button" type="button" value="Learn More" onclick="window.location.href='about.html'"/>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
             
             <div class="row gray">
 
@@ -74,7 +97,7 @@
                                 <div class="question">
                                 <p>What are you interested in applying for?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
-                                    <label><input type="checkbox" name="fc" ng-model="wantsCalFresh">CalFresh</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="wantsCalFresh" required>CalFresh</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsMediCal}">
                                     <label><input type="checkbox" name="fc" ng-model="wantsMediCal">MediCal</input></label>
@@ -345,7 +368,14 @@
                             
                             -->
 
-                            <button type="submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick');" ng-disabled="!form.$valid">Submit</button>
+                            <div ng-show="!form.$valid">
+                                <p>Please answer all of the questions above before clicking submit.</p>
+                                <br>
+                            </div>
+
+                            <input class="button" type="submit" value="Submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick');" ng-disabled="!form.$valid"/>
+                            <br>
+                            <br>
                         </form>
 
                         <div ng-show="form.$submitted">
@@ -420,47 +450,7 @@
                 </div>
             </div>
 
-            <div class="row"> 
-                <div class="about">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                        <h2>What is Access California?</h2>
-                        <p>Access California helps you find out if you're eligible for public programs with one simple form. Currently we help determine if you're eligible for:</p>
-                    </div>
-                    <div class="col-sm-3"></div>
-                </div>
-            </div>
             
-            <div class="row">
-                <div class="about">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-shopping-basket redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">CalFresh</p>
-                            <p>Get money to help put food on the table.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-heartbeat redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">MediCal</p>
-                            <p>Get insurance to help you stay healthy.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-usd redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">CalWORKS</p>
-                            <p>Get cash for housing, food and more.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3"></div>
-                </div>
-            </div>
 
             <!--
             <div class="row">

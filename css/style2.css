@@ -23,25 +23,6 @@ body {
     padding: 0;
 }
 
-.button {
-    width: 15%;
-    margin: 0 auto;
-    padding-left: 12px;
-    margin-left: -6px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-}
-
-.button:hover {
-    background-color: #933749;
-    color: white;
-    font-weight: 600;
-}
-
 /* Top Section */
 #header {
     background: 
@@ -53,14 +34,12 @@ body {
     background-repeat: repeat-x;
     background-position: center;
     background-size: cover;
-    height: 50%;
+    height: 100px;
 }
 
 #title {
     position: relative;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
     color: white;
     text-align: center;
 }
@@ -81,19 +60,7 @@ body {
 
         font-size: 15px !important;
         line-height: 20px !important;
-    }
-    .scroll-indicator { 
-        left: 43% !important;
-    }   
-
-    #header {
-        height: 50% !important;
-    }
-
-
-    .button {
-        width: 30%;
-    }
+    } 
 }
 
 /* Header Titles and Inputs */
@@ -157,6 +124,7 @@ label{
   float: left;
 }
 
+/*
 input[type="button"] {
     background: white;
     font-size: 15px;  
@@ -168,6 +136,35 @@ input[type="button"] {
     border-left: 0px;
     border-right: 0px;
     border-bottom: 1px solid black; 
+}
+*/
+
+.button {
+    background-color: #933749;
+    color: white;
+    padding-left: 12px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 15px;  
+    padding: 10px 10px 10px 10px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px; 
+}
+
+.button:hover {
+    box-shadow: 2px 2px 1px #888888;
+    font-weight: 600;
+}
+
+.button:disabled {
+    background-color: #808080;
+    color: #D3D3D3;
 }
 
 input[type="checkbox"] {
@@ -307,6 +304,19 @@ p {
     color: #000000;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
+    font-size: 18px;
+    text-align: left;
+    line-height: 20px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+}
+
+.about li {
+    font-size: 5em;
+    font-size: 2vw;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
     font-size: 18px;
     text-align: left;
     line-height: 20px;
