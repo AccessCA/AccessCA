@@ -5,6 +5,7 @@ angular.module('form', ['ngRoute'])
         $scope.wantsCalFresh = false;
         $scope.wantsMediCal = false;
         $scope.wantsCalWORKS = false;
+        $scope.wantsCalHeadStart = false;
 
         $scope.isCitizen;
         $scope.income;
@@ -20,14 +21,17 @@ angular.module('form', ['ngRoute'])
 
         $scope.isStudent;
         $scope.hasSSI;
+        $scope.hasCalWORKS;
         $scope.numberOnSSI;
 
         $scope.has60 = false;
         $scope.hasDisabled = false;
+        $scope.dum = false;
 
         $scope.isPregnant;
         $scope.hasChildUnder19;
         $scope.hasChildUnder21;
+        $scope.hasChildUnder5;
 
 
         $scope.hasUnavailableParentCalWORKS;
@@ -56,6 +60,14 @@ angular.module('form', ['ngRoute'])
                 
         };
 
+        $scope.isHeadStartEligible = function () { 
+
+            return $scope.HeadStartIncome($scope.income)
+                || $scope.hasSSI
+                || $scope.hasCalWORKS
+                
+        };
+
         $scope.isCalWORKSEligible = function () {
             return $scope.meetsChildReqsCalWORKS()
             && $scope.isCitizen
@@ -73,6 +85,10 @@ angular.module('form', ['ngRoute'])
             
         $scope.MediCalIncome = function () {
             return 16395 + ($scope.numberInHousehold - 1) * 5741;
+        }
+
+        $scope.HeadStartIncome = function (x) {
+            return (12060 + ($scope.numberInHousehold - 1) * 4180) >= x;
         }
 
         $scope.otherMediCalRequirements = function () {

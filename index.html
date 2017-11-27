@@ -82,6 +82,9 @@
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsCalWORKS}">
                                     <label><input type="checkbox" name="fc" ng-model="wantsCalWORKS">CalWORKS (Money)</input></label>
                                 </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: wantsCalHeadStart}">
+                                    <label><input type="checkbox" name="fc" ng-model="wantsCalHeadStart">California Head Start (Pre 5 Child Development)</input></label>
+                                </div>
                             </div>
 
 
@@ -141,7 +144,16 @@
                                 </p>
                             </div>
 
-
+                            <div class="question" ng-show="wantsCalHeadStart" >
+                                <p>Do you have a child under the age of 5?</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder5}">
+                                    <label><input type="radio" name="childUnder5" ng-model="hasChildUnder5" ng-value="true" ng-required="wantsCalHeadStart">Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasChildUnder5 && !form.childUnder5.$pristine}">
+                                    <label><input type="radio" name="childUnder5" ng-model="hasChildUnder5" ng-value="false" ng-required="wantsCalHeadStart">No</input></label>
+                                </div>
+                            </div>
+                            
                             <div class="question" ng-show="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine" >
                                 <p>Do you have a child under the age of 19?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder19}">
@@ -226,9 +238,9 @@
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine)" >
+                            <div class="question" ng-show="(wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine)" >
                                 <p>How many people live in your household, including yourself?</p>
-                                <select ng-model="numberInHousehold" ng-required="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine)" >
+                                <select ng-model="numberInHousehold" ng-required="(wantsCalHeadStart && hasChildUnder5) ||  wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine)" >
                                     <option value="1">Just me!</option>
                                     <option value="2">2 people</option>
                                     <option value="3">3 people</option>
@@ -244,9 +256,9 @@
 <!--                             && !form.childUnder21.$pristine
  -->
 
-                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine) ">
+                            <div class="question" ng-show=" (wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine) ">
                                 <p>About how much money did your household make last month? <br><br>
-                                $ <input type="text" ng-model="income"  ng-required="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine) "><br>
+                                $ <input type="text" ng-model="income" ng-name = "income" ng-required= "(wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine) "><br>
                                 </p>
                             </div>
 
@@ -259,10 +271,13 @@
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250)">
                                 <p>Select all that apply to you or the people who live with you:</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasDisabled}">
-                                    <label><input type="checkbox" name="fc" ng-model="hasDisabled" ng-required="!has60 && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250 ))">Someone is disabled</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="hasDisabled" ng-required="(!has60 && !dum) && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250 ))">Someone is disabled</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: has60}">
-                                    <label><input type="checkbox" name="fc" ng-model="has60" ng-required="!hasDisabled && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250))">Someone is age 60 or older</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="has60" ng-required="(!hasDisabled && !dum) && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250))">Someone is age 60 or older</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: dum}">
+                                    <label><input type="checkbox" name="fc" ng-model="dum" ng-required="(!has60 && !hasDisabled) && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250))">None of the above</input></label>
                                 </div>
                             </div>
 
@@ -284,19 +299,29 @@
                                 </select>
                             </div> -->
 
-                            <div class="question" ng-show="wantsCalFresh">
+                            <div class="question" ng-show="(hasChildUnder5 && !HeadStartIncome(income) && income > 0 ) || wantsCalFresh">
                                 <p>Are you or someone in your househould receiving SSI/SSP?</p>
                                 <span class="description">Individuals who already receive Supplemental Security Income/State Supplementary Payment (SSI/SSP) are not eligible for CalFresh.</span>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasSSI}">
-                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="true" ng-required="wantsCalFresh" >Yes</input></label>
+                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="true" ng-required="(hasChildUnder5 && !HeadStartIncome(income) && income > 0 ) || wantsCalFresh" >Yes</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasSSI && !form.SSI.$pristine}">
-                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="false" ng-required="wantsCalFresh" >No</input></label>
+                                    <label><input type="radio" name="SSI" ng-model="hasSSI" ng-value="false" ng-required="(hasChildUnder5 && !HeadStartIncome(income) && income > 0 ) || wantsCalFresh" >No</input></label>
                                 </div>
                             </div>
 
+                            <div class="question" ng-show="!hasSSI && hasChildUnder5 && !HeadStartIncome(income) && income > 0 ">
+                                <p>Are you or someone in your househould receiving CALWORKS</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasCalWORKS}">
+                                    <label><input type="radio" name="CalWORKS" ng-model="hasCalWORKS" ng-value="true" ng-required="!hasSSI && hasChildUnder5 && !HeadStartIncome(income) && income > 0 " >Yes</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: !hasCalWORKS && !form.CalWORKS.$pristine}">
+                                    <label><input type="radio" name="CalWORKS" ng-model="hasCalWORKS" ng-value="false" ng-required="!hasSSI && hasChildUnder5 && !HeadStartIncome(income) && income > 0 " >No</input></label>
+                                </div>
+                            </div>
 
-<!--                                 <select ng-model="hasSSI" >
+<!-- && (income < HeadStartIncome())
+ --><!--                                 <select ng-model="hasSSI" >
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
@@ -304,7 +329,7 @@
 
 
 
-                            <div class="question" ng-show="checkSSINumber()">
+                            <div class="question" ng-show="checkSSINumber() && wantsCalFresh">
                                 <p>How many people in your household receive SSI/SSP?</p>
                                 <select ng-model="numberOnSSI" >
                                     <option value="1">1 person</option>
@@ -412,6 +437,26 @@
                                         <p>It doesn't look like you're eligible for CalWORKS.</p>
                                     </div>
                                 </div>
+
+                                <div class="eligiblebox" ng-show="isHeadStartEligible() && wantsCalHeadStart">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>California Head Start <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for California Head Start!</p>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isHeadStartEligible() && wantsCalHeadStart">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>California Head Start <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for California Head Start.</p>
+                                    </div>
+                                </div>
                         </div>
 
                         </div>
@@ -437,7 +482,7 @@
             
             <div class="row">
                 <div class="about">
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2"></div>
                     <div class="col-sm-2">
                         <div class="programSupported">
                             <i class="fa fa-4x fa-shopping-basket redicon"></i>
@@ -462,9 +507,19 @@
                             <p>Get cash for housing, food and more.</p>
                         </div>
                     </div>
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-2">
+                        <div class="programSupported">
+                            <i class="fa fa-4x fa-graduation-cap redicon"></i>
+                            <br>
+                            <p style="font-weight: 600">Head Start</p>
+                            <p>Get help with child development.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"></div>
                 </div>
             </div>
+
+
 
             <!--
             <div class="row">
