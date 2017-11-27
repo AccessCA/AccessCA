@@ -1,6 +1,6 @@
 <html>
     <head >
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!-- GOOGLE ANALYTICS EVENTS -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108809105-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -10,7 +10,7 @@
           gtag('config', 'UA-108809105-1');
         </script>
 
-        <!-- Google Analytics -->
+        <!-- GOOGLE ANALYTICS GENERAL -->
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,13 +20,8 @@
         ga('create', 'UA-108809105-1', 'auto');
         ga('send', 'pageview');
         </script>
-        <!-- End Google Analytics -->
 
-        <!-- SMOOTH SCROLL -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="js/smoothscroll.js"></script>
-
-        <!-- rediconS -->
+        <!-- RED ICONS -->
         <script src="https://use.fontawesome.com/7a4d9a6531.js"></script>
 
         <!-- ANGULAR -->
@@ -47,19 +42,44 @@
         <div id="container">
             <div id="header">
                 <div id="title">
+                    <br>
                     <img src="img/bear.png" width="10%"><br>
                     <h1>ACCESS CALIFORNIA</h1></a>
-                    <div id="text">
+                    <div id="tagline">
                         <p>We're here to help you access the services you're entitled to.</p>
                     </div>
-                    <br>
-                    <input class="button" type="button" value="Learn More" onclick="window.location.href='about.html'"/>
                 </div>
-                <!--<a href="#scrolled" class="smoothScroll"><div class="scroll-indicator fa fa-chevron-down"></div></a>-->
             </div>
 
-            <a name="scrolled"></a>
-            
+            <div class="row"> 
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h2>How does this work?</h2>
+                        <p>Access California helps you find out if you're eligible for public programs with one simple form.</p>
+                        <br>
+                        <ol>
+                          <li>
+                            Fill out the form below and click submit<br>
+                          </li>
+                          <br>
+                          <li>
+                            Find out what you might be eligible for<br>
+                          </li>
+                          <br>
+                          <li>
+                            Apply for the programs you're interested in<br>
+                          </li>
+                          <br>
+                        </ol>  
+                        <input class="button" type="button" value="Learn More" onclick="window.location.href='about.html'"/>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+
             <div class="row gray">
 
                 <div class="body-events">
@@ -69,24 +89,36 @@
                         <div ng-app="form">
 
                           <div ng-controller="formController">
-                              <form name="form" novalidate ng-show="!form.$submitted">
+                              <form name="form" ng-show="!form.$submitted">
                                 <h2>Let's Get Started!</h2>
                                 <div class="question">
-                                <p>What are you interested in applying for?</p>
+                                <p>What programs are you interested?</p>
+                                <span class="description">Select one or more programs to get started</span>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
-                                    <label><input type="checkbox" name="fc" ng-model="wantsCalFresh">CalFresh (Food)</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="wantsCalFresh">
+                                        CalFresh</br>
+                                        <span class="description">Get money to help put food on the table</span>
+                                    </input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsMediCal}">
-                                    <label><input type="checkbox" name="fc" ng-model="wantsMediCal">MediCal (Medical Insurance)</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="wantsMediCal">
+                                        MediCal</br>
+                                        <span class="description">Get insurance to help you stay healthy</span>
+                                    </input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsCalWORKS}">
-                                    <label><input type="checkbox" name="fc" ng-model="wantsCalWORKS">CalWORKS (Money)</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="wantsCalWORKS">
+                                        CalWORKS</br>
+                                        <span class="description">Get cash for housing, food and more</span>
+                                    </input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsCalHeadStart}">
-                                    <label><input type="checkbox" name="fc" ng-model="wantsCalHeadStart">California Head Start (Pre 5 Child Development)</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="wantsCalHeadStart">  
+                                        Head Start</br>
+                                        <span class="description">Get your child on the right track</span>
+                                    </input></label>
                                 </div>
                             </div>
-
 
                             <div class="question" ng-show= "wantsMediCal" ng-required="wantsMediCal">
                                 <p>Please select any that apply change made</p>
@@ -109,16 +141,6 @@
                                     <label><input type="checkbox" name="none" ng-model="none"> None of the above</input></label>
                                 </div>
                             </div>
-<!-- 
-                            <div class="question" ng-show="wantsCalWORKS">
-                                <p>Is your family expecting a child?</p>
-                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
-                                    <label><input type="checkbox" name="fc" ng-model="isPregnant">Yes</input></label>
-                                </div>
-                                <div class="checkbox" ng-class="{checkboxSelected: isNotPregnant}">
-                                    <label><input type="checkbox" name="fc" ng-model="isNotPregnant">No</input></label>
-                                </div>
-                            </div> -->
 
                             <div class="question" ng-show="wantsCalWORKS" >
                                 <p>Is your family expecting a child?</p>
@@ -131,12 +153,6 @@
                                     <label><input type="radio" ng-model="isPregnant" name="pregnant" ng-value="false" ng-required="wantsCalWORKS">No</input></label>
                                 </div>
                             </div>
-<!-- 
-                            <div class="question" ng-show="wantsMediCal && !">
-                                <p>What is your age? <br><br>
-                                <input type="text" ng-model="age" ><br>
-                                </p>
-                            </div> -->
 
                             <div class="question" ng-show="wantsMediCal && !otherMediCalRequirements()" >
                                 <p>What is your age? <br><br>
@@ -281,8 +297,6 @@
                                 </div>
                             </div>
 
-
-
                             <div class="question" ng-show="wantsCalFresh">
                                 <p>Is anyone in your househould a student?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: isStudent}">
@@ -292,12 +306,6 @@
                                     <label><input type="radio" name="student" ng-model="isStudent" ng-value = "false" ng-required = "wantsCalFresh">No</input></label>
                                 </div>
                             </div>
-
-<!--                                 <select ng-model="isStudent" >
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select>
-                            </div> -->
 
                             <div class="question" ng-show="(hasChildUnder5 && !HeadStartIncome(income) && income > 0 ) || wantsCalFresh">
                                 <p>Are you or someone in your househould receiving SSI/SSP?</p>
@@ -320,18 +328,9 @@
                                 </div>
                             </div>
 
-<!-- && (income < HeadStartIncome())
- --><!--                                 <select ng-model="hasSSI" >
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                </select>
-                            </div> -->
-
-
-
                             <div class="question" ng-show="checkSSINumber() && wantsCalFresh">
                                 <p>How many people in your household receive SSI/SSP?</p>
-                                <select ng-model="numberOnSSI" >
+                                <select ng-model="numberOnSSI" ng-required="checkSSINumber() && wantsCalFresh">
                                     <option value="1">1 person</option>
                                     <option value="2">2 people</option>
                                     <option value="3" ng-show="numberInHousehold > 2">3 people</option>
@@ -345,39 +344,24 @@
                                 </select>
                             </div>
 
-                            <!--
-                            <p ng-show="wantsCalFresh && isCalFreshEligible()">Great! It looks like your household may qualify for CalFresh!</p>
+                            <div ng-show="!form.$valid">
+                                <p>Please answer all of the questions above before clicking submit.</p>
+                                <br>
+                            </div>
 
-                            <p ng-show="wantsCalFresh && !isCalFreshEligible()">Unfortunately, it doesn't look like your household will qualify for CalFresh. If you can, please fill in more information.</p>
-
-                            <p ng-show="wantsCalWORKS && !isCalWORKSEligible()">Unfortunately, it doesn't look like your household will qualify for CalWORKS. If you can, please fill in more information.</p>
-
-
-                            <p ng-show="wantsCalWORKS && isCalWORKSEligible()">Great! It looks like your household may qualify for CalWORKS!</p>
-
-                            
-                             <p ng-show="wantsMediCal && (isCalWORKSEligible() || isMediCalEligible())">Great! It looks like your household may qualify for MediCal!</p>
-
-                            <p ng-show="wantsMediCal  && !(isCalWORKSEligible() || isMediCalEligible())">Unfortunately, it doesn't look like your household will qualify for MediCal. If you can, please fill in more information.</p>
-                            
-
-                            <p id="demo" onclick="myFunction()">Click me to change my text color.</p>
-
-                            <script>
-                            function myFunction() {
-                                document.getElementById("demo").style.color = "red";
-                                ga('send', 'event', 'Videos', 'play', 'Fall Campaign');
-                            }
-                            </script>
-
-                            <a href="#top" onClick="_gaq.push(['_trackEvent', 'order_now', 'button_click', 'section_intro', '0']);">Order Now</a>
-                            
-                            -->
-
-                            <button type="submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick');" ng-disabled="!form.$valid">Submit</button>
+                            <input class="button" type="submit" value="Submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick');" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart)"/>
+                            <br>
+                            <br>
                         </form>
 
-                        <div ng-show="form.$submitted">
+                        <div class="results" ng-show="form.$submitted">
+
+                                <h2>Here are your results</h2>
+                                <p>A few things to keep in mind:</p>
+                                    <p>- We do our best to give you accurate results. However, the state makes the final decision about your eligibility</p>
+                                    <p>- Our website only tells you what programs you might be eligible for. You still need to apply for programs that you're interested in</p>
+                                <br>
+
                                 <div class="eligiblebox" ng-show="isCalFreshEligible() && wantsCalFresh">
                                     <div class="iconbox">
                                         <i class="fa fa-4x fa-shopping-basket redicon"></i>
@@ -385,6 +369,8 @@
                                     <div class="infobox">
                                         <h3>CalFresh <i class="fa fa-check-circle-o greenicon"></i></h3>
                                         <p>It looks like you may be eligible for CalFresh!</p>
+                                        <br>
+                                        <input class="button" type="button" value="Learn More & Apply" onclick="window.location.href='programs/calfresh.html'"/>
                                     </div>
                                 </div>
 
@@ -405,6 +391,8 @@
                                     <div class="infobox">
                                         <h3>MediCal <i class="fa fa-check-circle-o greenicon"></i></h3>
                                         <p>It looks like you may be eligible for MediCal!</p>
+                                        <br>
+                                        <input class="button" type="button" value="Learn More & Apply" onclick="window.location.href='programs/medical.html'"/>
                                     </div>
                                 </div>
 
@@ -425,6 +413,8 @@
                                     <div class="infobox">
                                         <h3>CalWORKS <i class="fa fa-check-circle-o greenicon"></i></h3>
                                         <p>It looks like you may be eligible for CalWORKS!</p>
+                                        <br>
+                                        <input class="button" type="button" value="Learn More & Apply" onclick="window.location.href='programs/calworks.html'"/>
                                     </div>
                                 </div>
 
@@ -440,17 +430,19 @@
 
                                 <div class="eligiblebox" ng-show="isHeadStartEligible() && wantsCalHeadStart">
                                     <div class="iconbox">
-                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                        <i class="fa fa-4x fa-graduation-cap redicon"></i>
                                     </div>
                                     <div class="infobox">
                                         <h3>California Head Start <i class="fa fa-check-circle-o greenicon"></i></h3>
-                                        <p>It looks like you may be eligible for California Head Start!</p>
+                                        <p>It looks like you may be eligible for Head Start!</p>
+                                        <br>
+                                        <input class="button" type="button" value="Learn More & Apply" onclick="window.location.href='programs/headstart.html'"/>
                                     </div>
                                 </div>
 
                                 <div class="eligiblebox" ng-show="!isHeadStartEligible() && wantsCalHeadStart">
                                     <div class="iconbox">
-                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                        <i class="fa fa-4x fa-graduation-cap redicon"></i>
                                     </div>
                                     <div class="infobox">
                                         <h3>California Head Start <i class="fa fa-question-circle-o redicon"></i></h3>
@@ -468,58 +460,6 @@
                     <div class="col-sm-3"></div>
                 </div>
             </div>
-
-            <div class="row"> 
-                <div class="about">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6">
-                        <h2>What is Access California?</h2>
-                        <p>Access California helps you find out if you're eligible for public programs with one simple form. Currently we help determine if you're eligible for:</p>
-                    </div>
-                    <div class="col-sm-3"></div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="about">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-shopping-basket redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">CalFresh</p>
-                            <p>Get money to help put food on the table.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-heartbeat redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">MediCal</p>
-                            <p>Get insurance to help you stay healthy.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-usd redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">CalWORKS</p>
-                            <p>Get cash for housing, food and more.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-graduation-cap redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">Head Start</p>
-                            <p>Get help with child development.</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2"></div>
-                </div>
-            </div>
-
-
 
             <!--
             <div class="row">

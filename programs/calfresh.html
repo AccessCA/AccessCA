@@ -27,7 +27,7 @@
         <!-- ANGULAR -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
-        <script type="text/javascript" src="js/root.js"></script>
+        <script type="text/javascript" src="../js/root.js"></script>
 
         <!-- BOOTSTRAP --> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- STYLE SHEET -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
 
     <body>
@@ -43,7 +43,7 @@
             <div id="header">
                 <div id="title">
                     <br>
-                    <a href="index.html"><img src="img/bear.png" width="10%"><br>
+                    <a href="../index.html"><img src="../img/bear.png" width="10%"><br>
                         <h1>ACCESS CALIFORNIA</h1>
                     </a>
                     <div id="tagline">
@@ -52,55 +52,15 @@
                 </div>
             </div>
 
-            <a name="scrolled"></a>
-
             <div class="row"> 
                 <div class="about">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <h2>What is Access California?</h2>
-                        <p>Access California helps you find out if you're eligible for public programs with one simple form. Currently we help determine if you're eligible for:</p>
+                        <i class="fa fa-4x fa-shopping-basket redicon"></i>
+                        <h2>CalFresh</h2>
+                        <p>Get money to help put food on the table</p>
                     </div>
                     <div class="col-sm-3"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="about">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-shopping-basket redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">CalFresh</p>
-                            <p>Get money to help put food on the table</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-heartbeat redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">MediCal</p>
-                            <p>Get insurance to help you stay healthy</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-usd redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">CalWORKS</p>
-                            <p>Get cash for housing, food and more</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="programSupported">
-                            <i class="fa fa-4x fa-graduation-cap redicon"></i>
-                            <br>
-                            <p style="font-weight: 600">Head Start</p>
-                            <p>Get your child on the right track</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2"></div>
                 </div>
             </div>
             
@@ -108,7 +68,7 @@
                 <div class="about">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <h2>Who is Access California for?</h2>
+                        <h3>What is CalFresh?</h3>
                         <p>Access California is for anyone who lives in California! More than 1/3 of people who are eligible for CalFresh don't know that they qualify. So even if you don't <i>think</i> you'll be eligible for public programs, it never hurts to check.</p>
                     </div>
                     <div class="col-sm-3"></div>
@@ -119,12 +79,31 @@
                 <div class="about">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <h2>Why Access California?</h2>
-                        <p>Public programs like CalFresh can be really hard to navigate - like <i>really</i> hard. Different sources provide different information about eligibility requirements. Applications are long and confusing. Websites are clunky and not mobile friendly. We want to help change that.</p>
+                        <h3>How do I apply for CalFresh?</h3>
+                        <br>
+                        <ol>
+                          <li>
+                            Fill out an application online or mail one in<br>
+                            <br>
+                            <input class="button" type="button" value="Apply Online" onclick="window.location.href='about.html'"/>
+                            <input class="button" type="button" value="Print an Application" onclick="window.location.href='about.html'"/>
+                          </li>
+                          <br>
+                          <li>
+                            Attend an in-person interview at your local CalFresh office<br>
+                          </li>
+                          <br>
+                          <li>
+                            Start receiving money on your CalFresh EBT Card<br>
+                            You can use this money at ...
+                          </li>
+                          <br>
+                        </ol> 
                     </div>
                     <div class="col-sm-3"></div>
                 </div>
             </div>
+
             <br>
 
             <div id="footer">
