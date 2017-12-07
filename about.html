@@ -40,17 +40,7 @@
 
     <body>
         <div id="container">
-            <div id="header">
-                <div id="title">
-                    <br>
-                    <a href="index.html"><img src="img/bear.png" width="10%"><br>
-                        <h1>ACCESS CALIFORNIA</h1>
-                    </a>
-                    <div id="tagline">
-                        <p>We're here to help you access the services you're entitled to.</p>
-                    </div>
-                </div>
-            </div>
+            <div id="header"></div>
 
             <a name="scrolled"></a>
 
@@ -127,9 +117,12 @@
             </div>
             <br>
 
-            <div id="footer">
-                <p>Designed and developed by Courtney Brousseau and Merric de Launey in Computer Science 194.</p>
-            </div>
-        </div>   
+            <div id="footer"></div>
+        </div> 
+
+        <script>
+            $("#header").load("../header.html");
+            $("#footer").load("footer.html");
+        </script>  
     </body>
 </html>
