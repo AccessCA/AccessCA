@@ -57,8 +57,6 @@
                 </div>
             </div>
 
-<input class="button" type="submit" value="Test" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#footer').offset().top}, 500);"/>
-
             <div ng-app="form">
             <div ng-controller="formController">
 
@@ -91,7 +89,7 @@
                 </div>
             </div>
 
-            <a name="top"></a>
+            <div id="top"></div>
 
             <div class="row gray">
 
@@ -359,6 +357,8 @@
                             </div>
 
                             <input class="button" type="submit" value="Submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#top').offset().top}, 500);" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart)"/>
+
+                            <input class="button" type="submit" value="Test" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#top').offset().top}, 500);"/>
                             <br>
                             <br>
                         </form>
