@@ -89,13 +89,13 @@
                 </div>
             </div>
 
+            <a name="top"></a>
+
             <div class="row gray">
 
                 <div class="body-events">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <a name="top"></a>
-                        
                               <form name="form" ng-show="!form.$submitted">
                                 <h2>Let's Get Started!</h2>
                                 <div class="question">
@@ -356,7 +356,7 @@
                                 <br>
                             </div>
 
-                            <input class="button" type="submit" value="Submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick');" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart)"/>
+                            <input class="button" type="submit" value="Submit" ng-click="submit()" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#top').offset().top}, 500);" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart)"/>
                             <br>
                             <br>
                         </form>
