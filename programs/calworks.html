@@ -36,21 +36,15 @@
 
         <!-- STYLE SHEET -->
         <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+        <!-- NAV BAR -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
     <body>
         <div id="container">
-            <div id="header">
-                <div id="title">
-                    <br>
-                    <a href="../index.html"><img src="../img/bear.png" width="10%"><br>
-                        <h1>ACCESS CALIFORNIA</h1>
-                    </a>
-                    <div id="tagline">
-                        <p>We're here to help you access the services you're entitled to.</p>
-                    </div>
-                </div>
-            </div>
+            <div id="header"></div>
 
             <div class="row"> 
                 <div class="about">
@@ -110,9 +104,12 @@
 
             <br>
 
-            <div id="footer">
-                <p>Designed and developed by Courtney Brousseau and Merric de Launey in Computer Science 194.</p>
-            </div>
+            <div id="footer"></div>
         </div>   
+
+        <script>
+            $("#header").load("../header.html");
+            $("#footer").load("../footer.html");
+        </script>  
     </body>
 </html>
