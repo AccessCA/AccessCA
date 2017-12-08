@@ -57,7 +57,7 @@
                 </div>
             </div>
 
-<input class="button" type="submit" value="Test" onClick="$('html, body').animate({scrollTop: $('#footer').offset().top}, 500);"/>
+<input class="button" type="submit" value="Test" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#footer').offset().top}, 500);"/>
 
             <div ng-app="form">
             <div ng-controller="formController">
