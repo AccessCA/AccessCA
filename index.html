@@ -101,7 +101,7 @@
                                 <div class="question">
                                 <p>What programs are you interested?</p>
                                 <span class="description">Select one or more programs to get started</span>
-                                <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
+                               <div class="checkbox" ng-class="{checkboxSelected: wantsCalFresh}">
                                     <label><input type="checkbox" name="fc" ng-model="wantsCalFresh">
                                         CalFresh</br>
                                         <span class="description">Get money to help put food on the table</span>
@@ -125,28 +125,73 @@
                                         <span class="description">Get your child on the right track</span>
                                     </input></label>
                                 </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: wantsSSI}">
+                                    <label><input type="checkbox" name="fc" ng-model="wantsSSI">  
+                                        Supplemental Security Income</br>
+                                        <span class="description"> Get money ....</span>
+                                    </input></label>
+                                </div>
+                                
+                                <div class="checkbox" ng-class="{checkboxSelected: wantsEITC}">
+                                    <label><input type="checkbox" name="fc" ng-model="wantsEITC">  
+                                        Earned Income Tax Credit</br>
+                                        <span class="description"> Save money on your taxes</span>
+                                    </input></label>
+                                </div>
                             </div>
 
-                            <div class="question" ng-show= "wantsMediCal" ng-required="wantsMediCal">
-                                <p>Please select any that apply change made</p>
-                                <div class="checkbox" ng-class="{checkboxSelected: isDisabled}">
+                            <div class="question" ng-show= "wantsMediCal || wantsSSI || wantsEITC" ng-required="wantsMediCal || wantsSSI || wantsEITC">
+                                <p>Please select any that apply</p>
+                                <div class="checkbox" ng-class="{checkboxSelected: isDisabled}"  ng-show= "wantsMediCal || wantsSSI" >
                                     <label><input type="checkbox" name="otherMedicalRequirements" ng-model="isDisabled"> I am Disabled or Blind</input></label>
                                 </div>
-                                <div class="checkbox" ng-class="{checkboxSelected: nursingHome">
+                                <div class="checkbox" ng-class="{checkboxSelected: inInstitution}" ng-show= "wantsSSI">
+                                    <label><input type="checkbox" name="institution" ng-model="inInstitution"> I am confined to an institution (such as a hospital or prison) at the government's expense</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: isChild}" ng-show= "wantsSSI">
+                                    <label><input type="checkbox" name="child" ng-model="isChild">I am under the age of 18</input></label>
+                                </div>
+                                <div class="checkbox" ng-class="{checkboxSelected: isMarried}" ng-show= "wantsSSI || wantsEITC">
+                                    <label><input type="checkbox" name="married" ng-model="isMarried">I am married</input></label>
+                                </div>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: nursingHome}" ng-show= "wantsMediCal">
                                     <label><input type="checkbox" name="otherMedicalRequirements" ng-model="nursingHome"> I am in a skilled nursing or intermediate care home</input></label>
                                 </div>
-                                <div class="checkbox" ng-class="{checkboxSelected: isRefugee}">
+                                <div class="checkbox" ng-class="{checkboxSelected: isRefugee}" ng-show= "wantsMediCal">
                                     <label><input type="checkbox" name="otherMedicalRequirements" ng-model="isRefugee"> I have refugee status for a limited time</input></label>
                                 </div>
-                                <div class="checkbox" ng-class="{checkboxSelected: hasCancer}">
+                                <div class="checkbox" ng-class="{checkboxSelected: hasCancer}" ng-show= "wantsMediCal">
                                     <label><input type="checkbox" name="otherMedicalRequirements" ng-model="hasCancer"> I have been diagnozed for breast and/or cervical cancer</input></label>
                                 </div>
-                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}">
+                                <div class="checkbox" ng-class="{checkboxSelected: isPregnant}" ng-show= "wantsMediCal">
                                     <label><input type="checkbox" name="pregnant" ng-model="isPregnant"> My family is expecting a child</input></label>
                                 </div>
-                                <div class="checkbox" ng-class="{checkboxSelected: none}">
-                                    <label><input type="checkbox" name="none" ng-model="none"> None of the above</input></label>
+                                <div class="checkbox" ng-class="{checkboxSelected: hasDisabledDependent}" ng-show= "wantsEITC">
+                                    <label><input type="checkbox" name="dependent" ng-model="hasDisabledDependent"> I have a disabled dependent</input></label>
                                 </div>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: hasDependent}" ng-show= "wantsEITC">
+                                    <label><input type="checkbox" name="dependent" ng-model="hasDependent"> I have a dependent under the age of 19</input></label>
+                                </div>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: hasStudentDependent}" ng-show= "wantsEITC">
+                                    <label><input type="checkbox" name="dependent" ng-model="hasStudentDependent"> I have a dependent under the age of 24 who is a full time student</input></label>
+                                </div>
+
+                                <div class="checkbox" ng-class="{checkboxSelected: none}" >
+                                    <label><input type="checkbox"  ng-required = "(wantsSSI && form.married.$pristine &&  form.child.$pristine && form.otherMedicalRequirements.$pristine) || (wantsEITC && form.married.$pristine && form.dependent.$pristine) " name="none" ng-model="none"> None of the above</input></label>
+                                </div>
+                            </div>
+
+                            <div class="question" ng-show="wantsEITC && (hasDisabledDependent || hasStudentDependent || hasDependent)" >
+                                <p>How many dependents do you have that are either disabled, under 18, or a fulltime student under 24 ?</p>
+                                <select ng-model="numDependents" >
+                                    <option value="1">1 dependent!</option>
+                                    <option value="2">2 dependents</option>
+                                    <option value="3">3 or more dependents</option>
+            
+                                </select>
                             </div>
 
                             <div class="question" ng-show="wantsCalWORKS" >
@@ -177,17 +222,19 @@
                                 </div>
                             </div>
                             
-                            <div class="question" ng-show="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine" >
+                            <div class="question" ng-show="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine && !hasChildUnder5 ">
                                 <p>Do you have a child under the age of 19?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder19}">
-                                    <label><input type="radio" name="childUnder19" ng-model="hasChildUnder19" ng-value="true" ng-required="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine">Yes</input></label>
+                                    <label><input type="radio" name="childUnder19" ng-model="hasChildUnder19" ng-value="true" ng-required="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine && !hasChildUnder5">Yes</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasChildUnder19 && !form.childUnder19.$pristine}">
-                                    <label><input type="radio" name="childUnder19" ng-model="hasChildUnder19" ng-value="false" ng-required="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine">No</input></label>
+                                    <label><input type="radio" name="childUnder19" ng-model="hasChildUnder19" ng-value="false" ng-required="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine && !hasChildUnder5">No</input></label>
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="!otherMediCalRequirements() && wantsMediCal &&  age < 65 && age > 20" ng-show="!otherMediCalRequirements() && wantsMediCal &&  age < 65 && age > 20">
+                            <!--  -->
+
+                            <div class="question" ng-show="!otherMediCalRequirements() && wantsMediCal &&  age < 65 && age > 20 && !hasChildUnder5 && !hasChildUnder19" ng-required="!otherMediCalRequirements() && wantsMediCal &&  age < 65 && age > 20 && !hasChildUnder5 && !hasChildUnder19">
                                 <p>Do you have a child under the age of 21?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasChildUnder21}">
                                     <label><input type="radio" name="childUnder21" ng-model="hasChildUnder21" ng-value = "true" 
@@ -199,33 +246,33 @@
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="hasChildUnder19 && wantsCalWORKS " ng-required="hasChildUnder19 && wantsCalWORKS ">
+                            <div class="question" ng-show="(hasChildUnder5 || hasChildUnder19) && wantsCalWORKS" ng-required="hasChildUnder19 && wantsCalWORKS ">
                                 <p>Does your child have a parent who is
                                     Disabled, Deceased or Absent?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentCalWORKS}">
-                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="true" ng-required="hasChildUnder19 && wantsCalWORKS ">Yes</input></label>
+                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="true" ng-required=" (hasChildUnder5 || hasChildUnder19) && wantsCalWORKS ">Yes</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasUnavailableParentCalWORKS && !form.unvailableParentCalWORKS.$pristine}">
-                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="false" ng-required="hasChildUnder19 && wantsCalWORKS "> No</input></label>
+                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="false" ng-required=" (hasChildUnder5 || hasChildUnder19) && wantsCalWORKS "> No</input></label>
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="hasChildUnder21 && wantsMediCal">
+                            <div class="question" ng-show="(hasChildUnder5 || hasChildUnder21) && wantsMediCal && !hasChildUnder19">
                                 <p>Does your child have a parent who is
                                     Disabled, Deceased or Absent?</p>
 
                                 <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentMediCal}">
                                     <label><input type="radio" name="unavailableParentMediCal" ng-model="hasUnavailableParentMediCal" 
-                                    ng-value="true" ng-required="hasChildUnder21 && wantsMediCal" >Yes</input></label>
+                                    ng-value="true" ng-required="(hasChildUnder5 || hasChildUnder21) && wantsMediCal && !hasChildUnder19" >Yes</input></label>
                                 </div>
 
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasUnavailableParentMediCal && !form.unavailableParentMediCal.$pristine}">
                                     <label><input type="radio" name="unavailableParentMediCal" ng-model="hasUnavailableParentMediCal" 
-                                    ng-value="false" ng-required = "hasChildUnder21 && wantsMediCal" >No</input></label>
+                                    ng-value="false" ng-required = "(hasChildUnder5 || hasChildUnder21) && wantsMediCal && !hasChildUnder19" >No</input></label>
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="hasChildUnder19 && !hasUnavailableParentCalWORKS && !form.unvailableParentCalWORKS.$pristine">
+                            <div class="question" ng-show="!hasUnavailableParentCalWORKS && !form.unvailableParentCalWORKS.$pristine">
                                 <p>Is the primary earner of your family out of work or working less than 100 hours per month?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasLowIncomeParentCalWORKS}">
                                     <label><input type="radio" name="lowIncomeParentCalWORKS" ng-model="hasLowIncomeParentCalWORKS" value="true" 
@@ -238,20 +285,20 @@
 
                             </div>
 
-                            <div class="question" ng-show="hasChildUnder21 && !hasUnavailableParentMediCal && !form.unvailableParentMediCal.$pristine">
-                                <p>Is the primary earner of your family out of work or working less than 100 hours per month?</p>
+                            <div class="question" ng-show="(!hasUnavailableParentMediCal && !form.unavailableParentMediCal.$pristine) || (wantsMediCal && !form.unvailableParentCalWORKS.$pristine && !hasUnavailableParentCalWORKS)">
+                                <p>Is the primary earner of your family out of work or working less than 100 hours per month? B</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasLowIncomeParentMediCal}">
                                     <label><input type="radio" name="lowIncomeParentMediCal" ng-model="hasLowIncomeParentMediCal"
-                                    ng-value="true" ng-required = "hasChildUnder21 && !hasUnavailableParentMediCal && !form.unvailableParentMediCal.$pristine">Yes</input></label>
+                                    ng-value="true" ng-required = "(!hasUnavailableParentMediCal && !form.unavailableParentMediCal.$pristine) || (wantsMediCal && !form.unvailableParentCalWORKS.$pristine && !hasUnavailableParentCalWORKS)">Yes</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasLowIncomeParentMediCal && !form.lowIncomeParentMediCal.$pristine}">
                                     <label><input type="radio" name="lowIncomeParentMediCal" ng-model="hasLowIncomeParentMediCal"
-                                    ng-value="false" ng-required="hasChildUnder21 && !hasUnavailableParentMediCal && !form.unvailableParentMediCal.$pristine" >No</input></label>
+                                    ng-value="false" ng-required="(!hasUnavailableParentMediCal && !form.unavailableParentMediCal.$pristine) || (wantsMediCal && !form.unvailableParentCalWORKS.$pristine && !hasUnavailableParentCalWORKS)" >No</input></label>
                                 </div>
 
                             </div>
 
-                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && meetsChildReqsCalWORKS())" >
+                            <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && meetsChildReqsCalWORKS()) || (wantsSSI && isDisabled && !inInstitution)" >
                                 <p>Are you a U.S citizen or a legal nonCitizen?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: isCitizen}">
                                     <label><input type="radio" name="citizen" ng-model="isCitizen" ng-value= "true" ng-required = "wantsCalFresh || (wantsCalWORKS && meetsChildReqsCalWORKS())" >Yes</input></label>
@@ -261,9 +308,11 @@
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="(wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine)" >
+                            
+
+                            <div class="question" ng-show="(wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && (!form.childUnder21.$pristine || !from.childUnder19.$pristine || !from.childUnder5.$pristine)) || (wantsSSI && isDisabled && !inInstitution)" >
                                 <p>How many people live in your household, including yourself?</p>
-                                <select ng-model="numberInHousehold" ng-required="(wantsCalHeadStart && hasChildUnder5) ||  wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine)" >
+                                <select ng-model="numberInHousehold" ng-required="(wantsCalHeadStart && hasChildUnder5) ||  wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && (!form.childUnder21.$pristine || !from.childUnder19.$pristine || !from.childUnder5.$pristine)) || (wantsSSI && isDisabled && !inInstitution)" >
                                     <option value="1">Just me!</option>
                                     <option value="2">2 people</option>
                                     <option value="3">3 people</option>
@@ -276,18 +325,24 @@
                                     <option value="10">10 people</option>
                                 </select>
                             </div>
-<!--                             && !form.childUnder21.$pristine
- -->
 
-                            <div class="question" ng-show=" (wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine) ">
+
+                            <div class="question" ng-show="(wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && (!form.childUnder21.$pristine || !from.childUnder19.$pristine || !from.childUnder5.$pristine)) || (wantsSSI && isDisabled && !inInstitution) || wantsEITC  ">
                                 <p>About how much money did your household make last month? <br><br>
-                                $ <input type="text" ng-model="income" ng-name = "income" ng-required= "(wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && !form.childUnder21.$pristine) "><br>
+                                $ <input type="text" ng-model="income" ng-name = "income" ng-required= "(wantsCalHeadStart && hasChildUnder5) || wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsMediCal && !meetsChildReqsMediCal() && !otherMediCalRequirements() && (!form.childUnder21.$pristine || !from.childUnder19.$pristine || !from.childUnder5.$pristine)) || (wantsSSI && isDisabled && !inInstitution) || wantsEITC"><br>
                                 </p>
                             </div>
 
-                            <div class="question" ng-show="wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()">
+                            <div class="question" ng-show="(wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()) || (wantsSSI && isDisabled && !inInstitution)">
                                 <p>What is the total net worth of your assets? <br><br>
-                                $ <input type="text" ng-model="assets" ng-required="wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS()" ><br>
+                                $ <input type="text" ng-model="assets" ng-required="wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() || (wantsSSI && isDisabled && !inInstitution)" ><br>
+                                </p>
+                            </div>
+
+
+                            <div class="question" ng-show="wantsEITC">
+                                <p>About how much money did your household invest in last year? <br><br>
+                                $ <input type="text" ng-model="yearlyInvestment" ng-name = "yearlyInvestment" ng-required= "wantsEITC"><br>
                                 </p>
                             </div>
 
@@ -356,7 +411,9 @@
                                 <br>
                             </div>
 
-                            <input class="button" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#top').offset().top}, 1500);" type="submit" value="Submit" ng-click="submit()" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart)"/>
+
+
+                            <input class="button" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#top').offset().top}, 1500);" type="submit" value="Submit" ng-click="submit()" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart && !wantsSSI && !wantsEITC)"/>
                             <br>
                             <br>
                         </form>
@@ -456,6 +513,49 @@
                                         <p>It doesn't look like you're eligible for Head Start.</p>
                                     </div>
                                 </div>
+                                <div class="eligiblebox" ng-show="isSSIEligible() && wantsSSI">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>Supplemental Security Income <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for Supplemental Security Income!</p>
+                                        <br>
+                                        <input class="button" type="button" value="Learn More & Apply" onclick="window.open('programs/headstart.html','_blank')"/>
+                                    </div>
+                                </div>
+
+                                <div class="eligiblebox" ng-show="!isSSIEligible() && wantsSSI">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>Supplemental Security Income <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for Supplemental Security Income.</p>
+                                    </div>
+                                </div>
+                                 <div class="eligiblebox" ng-show="isEITCEligible() && wantsEITC">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>Earned Income Tax Credit<i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for Earned Income Tax Credit!</p>
+                                        <br>
+                                        <input class="button" type="button" value="Learn More & Apply" onclick="window.open('programs/headstart.html','_blank')"/>
+                                    </div>
+                                </div> 
+                                <div class="eligiblebox" ng-show="!isEITCEligible() && wantsEITC">
+                                    <div class="iconbox">
+                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                    </div>
+                                    <div class="infobox">
+                                        <h3>Supplemental Security Income <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for Supplemental Security Income.</p>
+                                    </div>
+                                </div>
+
+                                
                         </div>
                     </div>
 
