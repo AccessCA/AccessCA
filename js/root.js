@@ -70,7 +70,6 @@ angular.module('form', ['ngRoute'])
         };
 
         $scope.isSSIEligible = function () { 
-
             return $scope.isDisabled
                 && $scope.SSIIncome()
                 && $scope.SSIAssets()
@@ -80,7 +79,7 @@ angular.module('form', ['ngRoute'])
         };
 
         $scope.isEITCEligible = function () { 
-            return  $scope.yearlyInvestments <= 3450 && EITCIncome()
+            return $scope.yearlyInvestment <= 3450 && $scope.EITCIncome();
 
         };
 
@@ -125,14 +124,14 @@ angular.module('form', ['ngRoute'])
         $scope.EITCIncome = function () {
             if ($scope.isMarried) {
                 return $scope.income * 12 <= 20600 
-                || ($scope.numDependents = 1 && $scope.income * 12 <= 45207)
-                || ($scope.numDependents = 2 && $scope.income * 12 <= 50597)
-                || ($scope.numDependents = 3 && $scope.income * 12 <= 53930)
+                || ($scope.numDependents == 1 && $scope.income * 12 <= 45207)
+                || ($scope.numDependents == 2 && $scope.income * 12 <= 50597)
+                || ($scope.numDependents == 3 && $scope.income * 12 <= 53930);
             }
             return $scope.income * 12 <= 15010 
-                || ($scope.numDependents = 1 && $scope.income * 12 <= 39617)
-                || ($scope.numDependents = 2 && $scope.income * 12 <= 45007)
-                || ($scope.numDependents = 3 && $scope.income * 12 <= 48340)
+                || ($scope.numDependents == 1 && $scope.income * 12 <= 39617)
+                || ($scope.numDependents == 2 && $scope.income * 12 <= 45007)
+                || ($scope.numDependents == 3 && $scope.income * 12 <= 48340);
         }
 
         $scope.SSIAssets = function () {
