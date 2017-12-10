@@ -413,7 +413,7 @@
 
 
 
-                            <input class="button" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#top').offset().top}, 1500);" type="submit" value="Submit" ng-click="submit()" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart && !wantsSSI && !wantsEITC)"/>
+                            <input class="button" onClick="ga('send', 'event', 'Submit Button', 'didClick'); $('html, body').animate({scrollTop: $('#top').offset().top}, 0);" type="submit" value="Submit" ng-click="submit()" ng-disabled="!form.$valid || (!wantsCalFresh && !wantsMediCal && !wantsCalWORKS && !wantsCalHeadStart && !wantsSSI && !wantsEITC)"/>
                             <br>
                             <br>
                         </form>
@@ -540,7 +540,7 @@
                                     </div>
                                     <div class="infobox">
                                         <h3>Earned Income Tax Credit<i class="fa fa-check-circle-o greenicon"></i></h3>
-                                        <p>It looks like you may be eligible for Earned Income Tax Credit!</p>
+                                        <p>It looks like you may be eligible for the Earned Income Tax Credit!</p>
                                         <br>
                                         <input class="button" type="button" value="Learn More & Apply" onclick="window.open('programs/headstart.html','_blank')"/>
                                     </div>
@@ -550,8 +550,8 @@
                                         <i class="fa fa-4x fa-usd redicon"></i>
                                     </div>
                                     <div class="infobox">
-                                        <h3>Supplemental Security Income <i class="fa fa-question-circle-o redicon"></i></h3>
-                                        <p>It doesn't look like you're eligible for Supplemental Security Income.</p>
+                                        <h3>Earned Income Tax Credit<i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for the Earned Income Tax Credit.</p>
                                     </div>
                                 </div>
 
