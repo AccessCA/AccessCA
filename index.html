@@ -98,6 +98,8 @@
                     <div class="col-sm-6">
                               <form name="form" ng-show="!form.$submitted">
                                 <h2>Let's Get Started!</h2>
+                                <span class="description">Your privacy is important to us. We don't look at, save, or share any of your answers.</span>
+
                                 <div class="question">
                                 <p>What programs are you interested?</p>
                                 <span class="description">Select one or more programs to get started</span>
@@ -128,14 +130,14 @@
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsSSI}">
                                     <label><input type="checkbox" name="fc" ng-model="wantsSSI">  
                                         Supplemental Security Income</br>
-                                        <span class="description"> Get money ....</span>
+                                        <span class="description">Get cash for housing, food and more</span>
                                     </input></label>
                                 </div>
                                 
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsEITC}">
                                     <label><input type="checkbox" name="fc" ng-model="wantsEITC">  
                                         Earned Income Tax Credit</br>
-                                        <span class="description"> Save money on your taxes</span>
+                                        <span class="description">Get a refund or reduce your taxes</span>
                                     </input></label>
                                 </div>
                             </div>
@@ -143,7 +145,7 @@
                             <div class="question" ng-show= "wantsMediCal || wantsSSI || wantsEITC" ng-required="wantsMediCal || wantsSSI || wantsEITC">
                                 <p>Please select any that apply</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: isDisabled}"  ng-show= "wantsMediCal || wantsSSI" >
-                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="isDisabled"> I am Disabled or Blind</input></label>
+                                    <label><input type="checkbox" name="disabled" ng-model="isDisabled"> I am disabled or blind</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: inInstitution}" ng-show= "wantsSSI">
                                     <label><input type="checkbox" name="institution" ng-model="inInstitution"> I am confined to an institution (such as a hospital or prison) at the government's expense</input></label>
@@ -155,13 +157,13 @@
                                     <label><input type="checkbox" name="married" ng-model="isMarried">I am married</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: nursingHome}" ng-show= "wantsMediCal">
-                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="nursingHome"> I am in a skilled nursing or intermediate care home</input></label>
+                                    <label><input type="checkbox" name="nursingHome" ng-model="nursingHome"> I am in a skilled nursing or intermediate care home</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: isRefugee}" ng-show= "wantsMediCal">
-                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="isRefugee"> I have refugee status for a limited time</input></label>
+                                    <label><input type="checkbox" name="refugee" ng-model="isRefugee"> I have refugee status for a limited time</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasCancer}" ng-show= "wantsMediCal">
-                                    <label><input type="checkbox" name="otherMedicalRequirements" ng-model="hasCancer"> I have been diagnozed for breast and/or cervical cancer</input></label>
+                                    <label><input type="checkbox" name="cancer" ng-model="hasCancer"> I have been diagnozed for breast and/or cervical cancer</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: isPregnant}" ng-show= "wantsMediCal">
                                     <label><input type="checkbox" name="pregnant" ng-model="isPregnant"> My family is expecting a child</input></label>
@@ -179,7 +181,7 @@
                                 </div>
 
                                 <div class="checkbox" ng-class="{checkboxSelected: none}" >
-                                    <label><input type="checkbox"  ng-required = "(wantsSSI && form.married.$pristine &&  form.child.$pristine && form.otherMedicalRequirements.$pristine) || (wantsEITC && form.married.$pristine && form.dependent.$pristine) " name="none" ng-model="none"> None of the above</input></label>
+                                    <label><input type="checkbox"  ng-required = "(wantsSSI && form.married.$pristine &&  form.child.$pristine && form.otherMedicalRequirements.$pristine) || (wantsEITC && form.married.$pristine && form.dependent.$pristine)" name="none" ng-model="none"> None of the above</input></label>
                                 </div>
                             </div>
 
