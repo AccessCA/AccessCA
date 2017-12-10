@@ -124,7 +124,7 @@ angular.module('form', ['ngRoute'])
 
         $scope.EITCIncome = function () {
             if ($scope.isMarried) {
-                return $scope.income * 12 <= 20,600 
+                return $scope.income * 12 <= 20600 
                 || ($scope.numDependents = 1 && $scope.income * 12 <= 45207)
                 || ($scope.numDependents = 2 && $scope.income * 12 <= 50597)
                 || ($scope.numDependents = 3 && $scope.income * 12 <= 53930)
@@ -133,8 +133,6 @@ angular.module('form', ['ngRoute'])
                 || ($scope.numDependents = 1 && $scope.income * 12 <= 39617)
                 || ($scope.numDependents = 2 && $scope.income * 12 <= 45007)
                 || ($scope.numDependents = 3 && $scope.income * 12 <= 48340)
-                
-
         }
 
         $scope.SSIAssets = function () {
