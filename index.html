@@ -154,7 +154,6 @@
                                 <div class="checkbox" ng-class="{checkboxSelected: isMarried}" ng-show= "wantsSSI || wantsEITC">
                                     <label><input type="checkbox" name="married" ng-model="isMarried">I am married</input></label>
                                 </div>
-
                                 <div class="checkbox" ng-class="{checkboxSelected: nursingHome}" ng-show= "wantsMediCal">
                                     <label><input type="checkbox" name="otherMedicalRequirements" ng-model="nursingHome"> I am in a skilled nursing or intermediate care home</input></label>
                                 </div>
@@ -231,8 +230,6 @@
                                     <label><input type="radio" name="childUnder19" ng-model="hasChildUnder19" ng-value="false" ng-required="!isPregnant && wantsCalWORKS && !form.pregnant.$pristine && !hasChildUnder5">No</input></label>
                                 </div>
                             </div>
-
-                            <!--  -->
 
                             <div class="question" ng-show="!otherMediCalRequirements() && wantsMediCal &&  age < 65 && age > 20 && !hasChildUnder5 && !hasChildUnder19" ng-required="!otherMediCalRequirements() && wantsMediCal &&  age < 65 && age > 20 && !hasChildUnder5 && !hasChildUnder19">
                                 <p>Do you have a child under the age of 21?</p>
