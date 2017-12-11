@@ -1,0 +1,111 @@
+<html>
+    <head >
+        <!-- GOOGLE ANALYTICS EVENTS -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108809105-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-108809105-1');
+        </script>
+
+        <!-- GOOGLE ANALYTICS GENERAL -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-108809105-1', 'auto');
+        ga('send', 'pageview');
+        </script>
+
+        <!-- RED ICONS -->
+        <script src="https://use.fontawesome.com/7a4d9a6531.js"></script>
+
+        <!-- ANGULAR -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
+        <script type="text/javascript" src="../js/root.js"></script>
+
+        <!-- BOOTSTRAP --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- STYLE SHEET -->
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+        <!-- NAV BAR -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="header"></div>
+
+            <div class="row"> 
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <i class="fa fa-5x fa-file-text-o redicon"></i>
+                        <br>
+                        <br>
+                        <h2>Earned Income Tax Credit (EITC)</h2>
+                        <p>Get a refund or reduce your taxes</p>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+            
+            <div class="row"> 
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h3>How does the EITC work?</h3>
+                        <p>The Earned Income Tax Credit (EITC) is a tax refund for low- and moderate-income households, especially ones with children. EITC is also called EIC or Earned Income Credit.</p>
+
+                        <p>To receive the Earned Income Tax Credit (EITC), you must file a tax return even if you don't owe taxes or aren't required to file taxes.</p>
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+
+            <div class="row"> 
+                <div class="about">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <h3>How do I apply for EITC?</h3>
+                        <br>
+                        <ol>
+                          <li>
+                            Gather important documents and claim the EITC on your tax return<br>
+                            <br>
+                            <input class="button" type="button" value="Learn More about claiming the EITC" onclick="window.open('https://www.irs.gov/credits-deductions/individuals/earned-income-tax-credit/claiming-earned-income-tax-credit-eitc','_blank')"/>
+                          </li>
+                          <br>
+                          <li>
+                            Wait for your refund<br>
+                            <p>If you claim the EITC, your entire refund will be delayed until mid-February. You should receive your tax refund sometime after mid-February.</p><br>
+                            <input class="button" type="button" value="Learn More about when to expect your refund" onclick="window.open('https://www.irs.gov/individuals/refund-timing','_blank')"/>
+                          </li>
+                          <br>
+                        </ol> 
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
+
+            <br>
+
+            <div id="footer"></div>
+        </div>   
+
+        <script>
+            $("#header").load("../header.html");
+            $("#footer").load("../footer.html");
+        </script>  
+    </body>
+</html>

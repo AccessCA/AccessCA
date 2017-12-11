@@ -130,7 +130,7 @@
                                 <div class="checkbox" ng-class="{checkboxSelected: wantsSSI}">
                                     <label><input type="checkbox" name="fc" ng-model="wantsSSI">  
                                         Supplemental Security Income</br>
-                                        <span class="description">Get cash for housing, food and more</span>
+                                        <span class="description">Get cash for housing, food and clothing</span>
                                     </input></label>
                                 </div>
                                 
@@ -512,11 +512,11 @@
                                 </div>
                                 <div class="eligiblebox" ng-show="isSSIEligible() && wantsSSI">
                                     <div class="iconbox">
-                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                        <i class="fa fa-4x fa-wheelchair redicon"></i>
                                     </div>
                                     <div class="infobox">
-                                        <h3>Supplemental Security Income <i class="fa fa-check-circle-o greenicon"></i></h3>
-                                        <p>It looks like you may be eligible for Supplemental Security Income!</p>
+                                        <h3>Supplemental Security Income (SSI) <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for Supplemental Security Income (SSI)!</p>
                                         <br>
                                         <input class="button" type="button" value="Learn More & Apply" onclick="window.open('programs/supplementalsecurityincome.html','_blank')"/>
                                     </div>
@@ -524,31 +524,31 @@
 
                                 <div class="eligiblebox" ng-show="!isSSIEligible() && wantsSSI">
                                     <div class="iconbox">
-                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                        <i class="fa fa-4x fa-wheelchair redicon"></i>
                                     </div>
                                     <div class="infobox">
-                                        <h3>Supplemental Security Income <i class="fa fa-question-circle-o redicon"></i></h3>
-                                        <p>It doesn't look like you're eligible for Supplemental Security Income.</p>
+                                        <h3>Supplemental Security Income (SSI) <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for Supplemental Security Income (SSI).</p>
                                     </div>
                                 </div>
                                  <div class="eligiblebox" ng-show="isEITCEligible() && wantsEITC">
                                     <div class="iconbox">
-                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                        <i class="fa fa-4x fa-file-text-o redicon"></i>
                                     </div>
                                     <div class="infobox">
-                                        <h3>Earned Income Tax Credit <i class="fa fa-check-circle-o greenicon"></i></h3>
-                                        <p>It looks like you may be eligible for the Earned Income Tax Credit!</p>
+                                        <h3>Earned Income Tax Credit (EITC) <i class="fa fa-check-circle-o greenicon"></i></h3>
+                                        <p>It looks like you may be eligible for the Earned Income Tax Credit (EITC)!</p>
                                         <br>
                                         <input class="button" type="button" value="Learn More & Apply" onclick="window.open('programs/earnedincometaxcredit.html','_blank')"/>
                                     </div>
                                 </div> 
                                 <div class="eligiblebox" ng-show="!isEITCEligible() && wantsEITC">
                                     <div class="iconbox">
-                                        <i class="fa fa-4x fa-usd redicon"></i>
+                                        <i class="fa fa-4x fa-file-text-o redicon"></i>
                                     </div>
                                     <div class="infobox">
-                                        <h3>Earned Income Tax Credit <i class="fa fa-question-circle-o redicon"></i></h3>
-                                        <p>It doesn't look like you're eligible for the Earned Income Tax Credit.</p>
+                                        <h3>Earned Income Tax Credit (EITC) <i class="fa fa-question-circle-o redicon"></i></h3>
+                                        <p>It doesn't look like you're eligible for the Earned Income Tax Credit (EITC).</p>
                                     </div>
                                 </div>
 
