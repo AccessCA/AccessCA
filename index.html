@@ -258,29 +258,29 @@
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="(hasChildUnder5 || hasChildUnder19) && wantsCalWORKS" >
+                            <div class="question" ng-show="((hasChildUnder5 && !isPregnant) || hasChildUnder19) && wantsCalWORKS" >
                                 <p>Does your child have a parent who is
                                     legally disabled, deceased or does not live with the child?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentCalWORKS}">
-                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="true" ng-required=" (hasChildUnder5 || hasChildUnder19) && wantsCalWORKS ">Yes</input></label>
+                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="true" ng-required=" ((hasChildUnder5 && !isPregnant) || hasChildUnder19) && wantsCalWORKS ">Yes</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasUnavailableParentCalWORKS && !form.unvailableParentCalWORKS.$pristine}">
-                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="false" ng-required=" (hasChildUnder5 || hasChildUnder19) && wantsCalWORKS "> No</input></label>
+                                    <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="false" ng-required=" ((hasChildUnder5 && !isPregnant) || hasChildUnder19) && wantsCalWORKS "> No</input></label>
                                 </div>
                             </div>
 
-                            <div class="question" ng-show="(hasChildUnder5 || hasChildUnder21) && wantsMediCal && !hasChildUnder19">
+                            <div class="question" ng-show="(hasChildUnder5 && !isPregnant || hasChildUnder21) && wantsMediCal && !hasChildUnder19 && !otherMediCalRequirements()">
                                 <p>Does your child have a parent who is
                                    legally disabled, deceased or does not live with the child?</p>
 
                                 <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentMediCal}">
                                     <label><input type="radio" name="unavailableParentMediCal" ng-model="hasUnavailableParentMediCal" 
-                                    ng-value="true" ng-required="(hasChildUnder5 || hasChildUnder21) && wantsMediCal && !hasChildUnder19" >Yes</input></label>
+                                    ng-value="true" ng-required="(hasChildUnder5 && !isPregnant || hasChildUnder21) && wantsMediCal && !hasChildUnder19 && !otherMediCalRequirements()" >Yes</input></label>
                                 </div>
 
                                 <div class="checkbox" ng-class="{checkboxSelected: !hasUnavailableParentMediCal && !form.unavailableParentMediCal.$pristine}">
                                     <label><input type="radio" name="unavailableParentMediCal" ng-model="hasUnavailableParentMediCal" 
-                                    ng-value="false" ng-required = "(hasChildUnder5 || hasChildUnder21) && wantsMediCal && !hasChildUnder19" >No</input></label>
+                                    ng-value="false" ng-required = "(hasChildUnder5 && !isPregnant || hasChildUnder21) && wantsMediCal && !hasChildUnder19 && !otherMediCalRequirements()" >No</input></label>
                                 </div>
                             </div>
 
@@ -371,13 +371,13 @@
                             <div class="question" ng-show="(wantsCalFresh && isCitizen) || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250)">
                                 <p>Select all that apply to you or the people who live with you:</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasDisabled}">
-                                    <label><input type="checkbox" name="fc" ng-model="hasDisabled" ng-required="(!has60 && !dum) && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250 ))">Someone is disabled</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="hasDisabled" ng-required="(!has60 && !dum) && ((wantsCalFresh && isCitizen) || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250 ))">Someone is disabled</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: has60}">
-                                    <label><input type="checkbox" name="fc" ng-model="has60" ng-required="(!hasDisabled && !dum) && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250))">Someone is age 60 or older</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="has60" ng-required="(!hasDisabled && !dum) && ((wantsCalFresh && isCitizen)|| (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250))">Someone is age 60 or older</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: dum}">
-                                    <label><input type="checkbox" name="fc" ng-model="dum" ng-required="(!has60 && !hasDisabled) && (wantsCalFresh || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250))">None of the above</input></label>
+                                    <label><input type="checkbox" name="fc" ng-model="dum" ng-required="(!has60 && !hasDisabled) && ((wantsCalFresh && isCitizen) || (wantsCalWORKS && isCitizen && meetsChildReqsCalWORKS() && assets <= 3250 && assets > 2250))">None of the above</input></label>
                                 </div>
                             </div>
 
@@ -414,7 +414,7 @@
 
                             <div class="question" ng-show="checkSSINumber() && (wantsCalFresh && isCitizen)">
                                 <p>How many people in your household receive SSI/SSP?</p>
-                                <select ng-model="numberOnSSI" ng-required="checkSSINumber() && wantsCalFresh">
+                                <select ng-model="numberOnSSI" ng-required="checkSSINumber() && (wantsCalFresh && isCitizen)">
                                     <option value="1">1 person</option>
                                     <option value="2">2 people</option>
                                     <option value="3" ng-show="numberInHousehold > 2">3 people</option>
