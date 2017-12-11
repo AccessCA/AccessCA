@@ -145,7 +145,7 @@
                             <div class="question" ng-show= "wantsMediCal || wantsSSI" ng-required="wantsMediCal || wantsSSI">
                                 <p>Please select any that apply</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: isDisabled}"  ng-show= "wantsMediCal || wantsSSI" >
-                                    <label><input type="checkbox" name="disabled" ng-model="isDisabled"> I am disabled or blind</input></label>
+                                    <label><input type="checkbox" name="disabled" ng-model="isDisabled"> I am legaly disabled or blind</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: inInstitution}" ng-show= "wantsSSI">
                                     <label><input type="checkbox" name="institution" ng-model="inInstitution"> I am confined to an institution (such as a hospital or prison) at the government's expense</input></label>
@@ -160,7 +160,7 @@
                                     <label><input type="checkbox" name="nursingHome" ng-model="nursingHome"> I am in a skilled nursing or intermediate care home</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: isRefugee}" ng-show= "wantsMediCal">
-                                    <label><input type="checkbox" name="refugee" ng-model="isRefugee"> I have refugee status for a limited time</input></label>
+                                    <label><input type="checkbox" name="refugee" ng-model="isRefugee"> I am on refugee status(defined by the U.S. government) for a limited time</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasCancer}" ng-show= "wantsMediCal">
                                     <label><input type="checkbox" name="cancer" ng-model="hasCancer"> I have been diagnozed for breast and/or cervical cancer</input></label>
@@ -260,7 +260,7 @@
 
                             <div class="question" ng-show="(hasChildUnder5 || hasChildUnder19) && wantsCalWORKS" >
                                 <p>Does your child have a parent who is
-                                    Disabled, Deceased or Absent?</p>
+                                    legally disabled, deceased or does not live with the child?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentCalWORKS}">
                                     <label><input type="radio" name="unvailableParentCalWORKS" ng-model="hasUnavailableParentCalWORKS" ng-value="true" ng-required=" (hasChildUnder5 || hasChildUnder19) && wantsCalWORKS ">Yes</input></label>
                                 </div>
@@ -271,7 +271,7 @@
 
                             <div class="question" ng-show="(hasChildUnder5 || hasChildUnder21) && wantsMediCal && !hasChildUnder19">
                                 <p>Does your child have a parent who is
-                                    Disabled, Deceased or Absent?</p>
+                                   legally disabled, deceased or does not live with the child?</p>
 
                                 <div class="checkbox" ng-class="{checkboxSelected: hasUnavailableParentMediCal}">
                                     <label><input type="radio" name="unavailableParentMediCal" ng-model="hasUnavailableParentMediCal" 
@@ -311,7 +311,7 @@
                             </div>
 
                             <div class="question" ng-show="wantsCalFresh || (wantsCalWORKS && meetsChildReqsCalWORKS()) || (wantsSSI && isDisabled && !inInstitution)" >
-                                <p>Are you a U.S citizen or a legal nonCitizen?</p>
+                                <p>Are you a U.S citizen or a legal alien?</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: isCitizen}">
                                     <label><input type="radio" name="citizen" ng-model="isCitizen" ng-value= "true" ng-required = "wantsCalFresh || (wantsCalWORKS && meetsChildReqsCalWORKS()) || (wantsSSI && isDisabled && !inInstitution)" >Yes</input></label>
                                 </div>
