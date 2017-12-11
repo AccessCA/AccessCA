@@ -23,7 +23,7 @@ angular.module('form', ['ngRoute'])
         $scope.isRefugee = false
         $scope.isChild = false
         $scope.numParents;
-        $scope.isMarried = false
+        $scope.isMarried;
         $scope.nursingHome = false
         $scope.hasCancer = false
  
@@ -148,7 +148,7 @@ angular.module('form', ['ngRoute'])
 
 
         $scope.meetsChildReqsMediCal = function () {
-            return $scope.hasLowIncomeParentMediCal || $scope.hasUnavailableParentMediCal ||  $scope.hasUnavailableParentCalWORKS
+            return $scope.hasLowIncomeParentMediCal || $scope.hasLowIncomeParentCalWORKS || $scope.hasUnavailableParentMediCal ||  $scope.hasUnavailableParentCalWORKS
         }
         $scope.meetsChildReqsCalWORKS = function () {
             return $scope.hasLowIncomeParentCalWORKS || $scope.hasUnavailableParentCalWORKS || $scope.isPregnant;
