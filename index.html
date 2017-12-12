@@ -145,7 +145,7 @@
                             <div class="question" ng-show= "wantsMediCal || wantsSSI" ng-required="wantsMediCal || wantsSSI">
                                 <p>Please select any that apply</p>
                                 <div class="checkbox" ng-class="{checkboxSelected: isDisabled}"  ng-show= "wantsMediCal || wantsSSI" >
-                                    <label><input type="checkbox" name="disabled" ng-model="isDisabled"> I am legaly disabled or blind</input></label>
+                                    <label><input type="checkbox" name="disabled" ng-model="isDisabled"> I am legally disabled or blind</input></label>
                                 </div>
                                 <div class="checkbox" ng-class="{checkboxSelected: inInstitution}" ng-show= "wantsSSI">
                                     <label><input type="checkbox" name="institution" ng-model="inInstitution"> I am confined to an institution (such as a hospital or prison) at the government's expense</input></label>
@@ -200,7 +200,7 @@
                             <div class="question" ng-show="wantsEITC" >
                                 <p>How many dependents (if any) do you have that are either disabled, under 18, or a fulltime student under 24 ?</p>
                                 <select ng-model="numDependents" ng-required="wantsEITC" >
-                                     <option value="0">No such dependents</option>
+                                     <option value="0">None</option>
                                     <option value="1">1 dependent</option>
                                     <option value="2">2 dependents</option>
                                     <option value="3">3 or more dependents</option>
